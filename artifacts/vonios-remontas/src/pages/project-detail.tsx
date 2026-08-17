@@ -144,25 +144,31 @@ export default function ProjectDetail() {
                 </div>
               )}
 
-              {/* Gallery grid */}
+              {/* Gallery grid – additional real project photos */}
               {project.images.length > 0 && (
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                  {project.images.map((img, i) => (
-                    <button
-                      key={i}
-                      type="button"
-                      className="relative aspect-square bg-card overflow-hidden cursor-zoom-in group"
-                      onClick={() => setActiveImage(img.url)}
-                    >
-                      <img
-                        src={img.url}
-                        alt={img.alt}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors" />
-                    </button>
-                  ))}
+                <div className="mt-8">
+                  <h2 className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground font-sans mb-4">
+                    Daugiau darbų nuotraukų
+                  </h2>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+                    {project.images.map((img, i) => (
+                      <button
+                        key={i}
+                        type="button"
+                        className="relative aspect-[4/3] bg-card overflow-hidden cursor-zoom-in group"
+                        onClick={() => setActiveImage(img.url)}
+                        aria-label={img.alt}
+                      >
+                        <img
+                          src={img.url}
+                          alt={img.alt}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors" />
+                      </button>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
