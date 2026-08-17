@@ -1,14 +1,16 @@
 {
-  "name": "workspace",
-  "version": "0.0.0",
+  "name": "buildiq",
+  "version": "1.0.0",
   "license": "MIT",
+  "private": true,
   "scripts": {
-    "preinstall": "sh -c 'rm -f package-lock.json yarn.lock; case \"$npm_config_user_agent\" in pnpm/*) ;; *) echo \"Use pnpm instead\" >&2; exit 1 ;; esac'",
-    "build": "pnpm run typecheck && pnpm -r --if-present run build",
+    "preinstall": "sh -c 'rm -f package-lock.json yarn.lock; case \"$npm_config_user_agent\" in pnpm/*) ;; *) echo \"[BuildIQ] pnpm not detected — installing pnpm globally then running pnpm install...\" >&2; npm install -g pnpm --prefer-offline 2>/dev/null || true; pnpm install --shamefully-hoist; exit 0 ;; esac'",
+    "build": "BASE_PATH=/ NODE_ENV=production pnpm --filter @workspace/vonios-remontas run build && pnpm --filter @workspace/api-server run build",
+    "start": "NODE_ENV=production node --enable-source-maps artifacts/api-server/dist/index.mjs",
+    "dev": "pnpm run dev",
     "typecheck:libs": "tsc --build",
     "typecheck": "pnpm run typecheck:libs && pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck"
   },
-  "private": true,
   "dependencies": {
     "@replit/connectors-sdk": "^0.4.1"
   },

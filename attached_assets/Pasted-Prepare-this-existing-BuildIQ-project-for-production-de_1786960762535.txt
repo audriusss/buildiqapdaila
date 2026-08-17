@@ -1,0 +1,72 @@
+Prepare this existing BuildIQ project for production deployment to my own Ubuntu 24.04 VPS.
+
+Production domain:
+https://buildiq.lt
+
+The VPS already has Node.js 22, npm, nginx and PM2.
+
+BuildIQ will run as a separate PM2 application on:
+127.0.0.1:3000
+
+Do not deploy anything yourself.
+
+Do not change the visual design, content, SEO architecture, routes, gallery, FAQ or Telegram functionality.
+
+Inspect the current project and make only the changes actually required for self-hosted production deployment.
+
+Requirements:
+
+- production server must listen on process.env.PORT || 3000
+- bind safely for nginx reverse proxy
+- npm install must work
+- npm run build must work
+- npm start must start the production application
+- frontend routes must work when accessed directly
+- API/form routes must continue working
+- Telegram environment variables must remain external:
+  TELEGRAM_BOT_TOKEN
+  TELEGRAM_CHAT_ID
+- no secrets committed to source
+- production domain everywhere remains https://buildiq.lt
+- robots.txt and sitemap.xml must work in production
+- all SEO landing pages must work directly by URL
+- preserve prerender/SSR/static SEO behavior if currently implemented
+- do not replace crawler-readable SEO pages with a client-only SPA
+- static assets must work behind nginx
+- trust proxy correctly if required behind nginx
+- do not hardcode Replit URLs
+- remove Replit-specific runtime assumptions only if they prevent VPS deployment
+
+Add a production-ready ecosystem.config.cjs for PM2 if useful.
+
+PM2 application name:
+buildiq
+
+PORT:
+3000
+
+Before finishing run:
+npm install
+npm run build
+npm start
+
+Verify with localhost requests that:
+/
+ /darbai
+ /faq
+ /vonios-remontas-klaipeda
+ /plyteliu-klijavimas-klaipeda
+ /sitemap.xml
+ /robots.txt
+
+all return correctly.
+
+Also inspect the raw HTML returned by curl for an important SEO landing page and verify its title, canonical, H1/content and SEO metadata are present without requiring browser-side JavaScript.
+
+Do not redesign or refactor unrelated code.
+
+At the end tell me exactly:
+1. production start command
+2. build command
+3. required environment variables
+4. whether the application is ready for GitHub -> VPS deployment.
