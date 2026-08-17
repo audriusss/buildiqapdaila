@@ -52,6 +52,14 @@ export const projects: Project[] = [
         url: "/assets/projects/p1-2.jpg",
         alt: "Potinkinis WC ir praustuvas",
       },
+      {
+        url: "/assets/projects/betono-efekto-duso-zona-wc.webp",
+        alt: "Betono efekto plytelėmis įrengta dušo zona ir potinkinis WC su juodais rėmais",
+      },
+      {
+        url: "/assets/projects/tamsi-vonia-apvalus-veidrodis.jpg",
+        alt: "Tamsi vonios kambario apdaila su apvaliu LED veidrodžiu ir stikline dušo durimis",
+      },
     ],
     beforeImage: {
       url: "/assets/projects/p1-before.jpg",
@@ -96,6 +104,14 @@ export const projects: Project[] = [
         url: "/assets/projects/p2-2.jpg",
         alt: "Dušo zona ir armatūra",
       },
+      {
+        url: "/assets/projects/marmuro-plyteles-duso-zona-01.webp",
+        alt: "Didelio formato balto marmuro plytelėmis apklijuota dušo zona su juodomis metalinėmis pertvaromis",
+      },
+      {
+        url: "/assets/projects/marmuro-plyteles-duso-zona-02.webp",
+        alt: "Marmuro efekto plytelės dušo zonoje, juoda dušo sistema ir medienos efekto grindys",
+      },
     ],
   },
   {
@@ -125,6 +141,14 @@ export const projects: Project[] = [
       {
         url: "/assets/projects/p3-1.jpg",
         alt: "Dušo zona su trapas",
+      },
+      {
+        url: "/assets/projects/duso-trapas-beige-plyteles.webp",
+        alt: "Smėlio spalvos plytelėmis įrengta dušo zona su linijinio trapo sprendimu",
+      },
+      {
+        url: "/assets/projects/vonios-apdaila-veidrodis-radiatorius.webp",
+        alt: "Galutinis vonios kambario rezultatas su apšviestu veidrodžiu ir rankšluosčių džiovintuvu",
       },
     ],
     beforeImage: {
@@ -170,6 +194,14 @@ export const projects: Project[] = [
         url: "/assets/projects/p4-2.jpg",
         alt: "WC zona ir praustuvas",
       },
+      {
+        url: "/assets/projects/marmuro-plyteles-potinkinis-wc-01.webp",
+        alt: "Marmuro efekto plytelėmis apdailintas vonios kambarys su potikininis WC ir mediniu spintelės frontu",
+      },
+      {
+        url: "/assets/projects/pilkos-plyteles-potinkinis-wc.webp",
+        alt: "Pilkos marmuro tekstūros plytelės su potinkiniu WC ir juodu rankšluosčių gyvatuku",
+      },
     ],
   },
   {
@@ -197,6 +229,14 @@ export const projects: Project[] = [
       {
         url: "/assets/projects/p5-1.jpg",
         alt: "Vonios dušo zona",
+      },
+      {
+        url: "/assets/projects/pilkas-vonios-remontas-kompaktiskas.webp",
+        alt: "Pilkomis plytelėmis įrengtas kompaktiškas vonios kambarys su praustuvais ir dušo zona",
+      },
+      {
+        url: "/assets/projects/balta-vonia-potinkinis-wc-led.webp",
+        alt: "Balta vonios apdaila su LED lubų apšvietimu, potikininis WC ir stikline dušo pertvaras",
       },
     ],
   },
@@ -238,6 +278,18 @@ export const projects: Project[] = [
       {
         url: "/assets/projects/p6-3.jpg",
         alt: "Bendrasis vonios kambario vaizdas",
+      },
+      {
+        url: "/assets/projects/juodos-plyteles-potinkinis-wc.webp",
+        alt: "Tamsios marmuro efekto plytelės su potikininis WC ir šiuolaikine elektros instaliacija",
+      },
+      {
+        url: "/assets/projects/laisva-vonia-dekoratyvines-plyteles.jpg",
+        alt: "Laisvai stovinti vonia su dekoratyvinėmis plytelėmis aplink langą",
+      },
+      {
+        url: "/assets/projects/erdvi-vonia-laisva-vonia-dark.webp",
+        alt: "Erdvus vonios kambarys su tamsiomis plytelėmis, laisvai stovinti vonia ir pakabinama kriauklė",
       },
     ],
     beforeImage: {
