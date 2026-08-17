@@ -47,3 +47,11 @@ Thumbs.db
 # Replit
 .cache/
 .local/
+
+# Secrets / environment
+.env
+.env.*
+!.env.example
+
+# Replit prompt attachments
+attached_assets/Pasted-*.txt
