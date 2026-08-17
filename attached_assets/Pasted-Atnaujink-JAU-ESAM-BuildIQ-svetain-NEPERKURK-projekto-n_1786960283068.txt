@@ -1,0 +1,187 @@
+Atnaujink JAU ESAMĄ BuildIQ svetainę.
+
+NEPERKURK projekto nuo nulio.
+NELIESK veikiančių SEO puslapių, route, galerijos, FAQ, Telegram integracijos, formos ar backend logikos.
+
+Reikia pakeisti tik pagrindinio puslapio HERO sekcijos vizualą ir užtikrinti, kad pirmas ekranas būtų toks pat tamsus ir premium kaip visas likęs svetainės dizainas.
+
+## PAGRINDINĖ PROBLEMA
+
+Dabartiniame homepage HERO naudojama šviesi vonios nuotrauka.
+
+Ji netinka prie naujo dark premium BuildIQ dizaino.
+
+Pirmame ekrane turi būti TAMSI moderni vonia.
+
+Hero turi atrodyti kaip premium architektūros / interjero studijos svetainė:
+
+* tamsi vonia;
+* tamsios akmens arba betono sienos;
+* charcoal / graphite spalvos;
+* juoda santechnika;
+* stiklinė dušo pertvara;
+* tamsus praustuvas;
+* apvalus arba ovalus veidrodis;
+* šiltas netiesioginis LED apšvietimas;
+* labai mažai šviesių plotų;
+* cinematic / architectural photography stilius.
+
+Naudok jau projekte esančią TAMSIĄ vonios nuotrauką, kuri šiuo metu naudojama viename iš projektų / galerijoje – tą, kur matomas tamsus betoninis vonios kambarys, apvalus veidrodis, juodas praustuvas ir stiklinis dušas.
+
+NEREIKIA generuoti naujos nuotraukos.
+
+Surask esamą šios tamsios nuotraukos asset / import / URL projekte ir panaudok ją homepage HERO.
+
+## HERO IŠDĖSTYMAS
+
+Desktop:
+
+* hero turi užimti beveik visą pirmą ekraną;
+* nuotrauka turi užpildyti visą arba didžiąją hero dalį;
+* `object-fit: cover`;
+* svarbiausia nuotraukos dalis turi likti matoma;
+* dešinėje turi aiškiai matytis vonios interjeras;
+* kairėje nuotrauka turi būti stipriai pritemdyta gradient overlay, kad tekstas būtų labai gerai skaitomas.
+
+Naudok panašaus principo overlay:
+
+`linear-gradient(90deg, rgba(8,8,8,0.98) 0%, rgba(8,8,8,0.90) 28%, rgba(8,8,8,0.55) 50%, rgba(8,8,8,0.12) 72%, rgba(8,8,8,0) 100%)`
+
+Vertes galima koreguoti pagal realią nuotrauką.
+
+Svarbiausia:
+
+KAIRĖ = tamsus tekstinis plotas.
+
+DEŠINĖ = aiškiai matomas premium vonios interjeras.
+
+## HERO TURINYS
+
+IŠSAUGOK dabartinį tekstą:
+
+VIENAS MEISTRAS — VISAS VONIOS REMONTAS
+
+H1:
+
+Vonios
+remontas
+Klaipėdoje
+
+„Vonios remontas“ – off-white.
+
+„Klaipėdoje“ – bronze / muted gold.
+
+Tekstas:
+
+Visi darbai iš vienų rankų — nuo griovimo iki paskutinės plytelės. Daugiau nei 10 metų patirties. Dirbu Klaipėdoje ir aplinkiniuose rajonuose.
+
+Trust elements:
+
+10+ metų patirtis
+
+Pilnas vonios remontas
+
+Vienas meistras — visa atsakomybė
+
+CTA:
+
+GAUTI PASIŪLYMĄ
+
+PERŽIŪRĖTI DARBUS
+
+NELIESK CTA veikimo ir route.
+
+## HEADER
+
+Header turi likti tamsus ir susilieti su hero.
+
+Išsaugoti:
+
+BuildIQ
+
+VONIOS REMONTAS
+KLAIPĖDOJE
+
+Pradžia
+Darbai
+FAQ
+Gauti pasiūlymą
+
++370 674 96909
+
+Header neturi turėti šviesaus background.
+
+## SVARBI VIZUALINĖ TAISYKLĖ
+
+Pirmas ekranas turi būti VISAS tamsus.
+
+Dabar neturi likti šviesios/beige vonios įspūdžio.
+
+Kai lankytojas atidaro BuildIQ, pirmas vaizdas turi būti:
+
+JUODA / ANTRACITO / BETONO VONIA + BRONZINIAI AKCENTAI + BALTA TYPOGRAFIJA.
+
+Tai turi iškart sutapti su likusiu svetainės dark dizainu.
+
+## MOBILE
+
+Mobile HERO taip pat turi naudoti tą pačią tamsią vonios nuotrauką.
+
+Mobile:
+
+* jokio horizontal overflow;
+* nuotrauka turi būti tinkamai cropinama;
+* `object-position` parinkti taip, kad matytųsi geriausia vonios dalis;
+* tekstas turi būti aiškiai skaitomas;
+* hero negali tapti per šviesus;
+* CTA turi būti lengvai paspaudžiami.
+
+Galima naudoti kitokį `object-position` mobile ir desktop.
+
+## PERFORMANCE
+
+Nedubliuok tos pačios nuotraukos be reikalo, jeigu galima naudoti jau esamą asset.
+
+Jeigu dabartinis failas per didelis:
+
+* optimizuok;
+* naudok WebP/AVIF, jei projektas jau taip daro;
+* neblogink LCP;
+* išlaikyk tinkamą hero preload/fetch priority logiką.
+
+## KO NELIESTI
+
+Šio pakeitimo metu NELIESK:
+
+* SEO landing puslapių tekstų;
+* sitemap.xml;
+* robots.txt;
+* canonical;
+* structured data;
+* FAQ turinio;
+* projektų duomenų;
+* Telegram integracijos;
+* formos laukų;
+* backend;
+* kitų puslapių dizaino, nebent bendras Hero komponentas netyčia naudojamas kitur.
+
+Tikslas yra tikslinis homepage hero pataisymas.
+
+## PATIKRINIMAS
+
+Po pakeitimo:
+
+1. atidaryk `/`;
+2. patikrink desktop;
+3. patikrink mobile;
+4. įsitikink, kad pirmajame ekrane naudojama tamsi vonios nuotrauka;
+5. įsitikink, kad šviesi dabartinė hero nuotrauka nebenaudojama homepage;
+6. patikrink, kad tekstas gerai skaitomas;
+7. patikrink CTA;
+8. patikrink header;
+9. patikrink, kad nėra TypeScript/build klaidų;
+10. nekeisk nieko, kas nesusiję su šiuo hero pakeitimu.
+
+Galutinis rezultatas turi atrodyti:
+
+DARK PREMIUM BUILDIQ HERO + TAMSI MODERNI VONIA + BRONZE ACCENTS + STRONG READABLE TEXT.

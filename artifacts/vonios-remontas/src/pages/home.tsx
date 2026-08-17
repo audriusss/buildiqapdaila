@@ -41,18 +41,22 @@ export default function Home() {
 
       {/* ══ HERO ══ */}
       <section className="relative min-h-[100svh] flex items-center overflow-hidden">
-        {/* Background image — right side dominant */}
+        {/* Background image — dark concrete bathroom (p3), right side dominant */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/assets/hero.jpg"
-            alt="Premium vonios kambario interjeras"
-            className="w-full h-full object-cover object-center"
+            src="/assets/projects/p3-main.jpg"
+            alt="Tamsus premium vonios kambarys su apvaliu veidrodžiu ir stikliniu dušu"
+            className="w-full h-full object-cover [object-position:70%_center] md:[object-position:65%_center]"
             loading="eager"
             fetchPriority="high"
           />
-          {/* Gradient: heavy left, light right */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0b0b0b] via-[#0b0b0b]/80 to-[#0b0b0b]/20" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0b0b0b]/60 via-transparent to-[#0b0b0b]/30" />
+          {/* Gradient: heavy dark left for readability, reveals photo on right */}
+          <div
+            className="absolute inset-0"
+            style={{ background: "linear-gradient(90deg, rgba(8,8,8,0.98) 0%, rgba(8,8,8,0.90) 28%, rgba(8,8,8,0.55) 50%, rgba(8,8,8,0.12) 72%, rgba(8,8,8,0) 100%)" }}
+          />
+          {/* Bottom fade for text legibility */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/70 via-transparent to-[#080808]/25" />
         </div>
 
         <div className="container mx-auto px-6 relative z-10 pt-28 pb-20 md:pt-32 md:pb-24">
