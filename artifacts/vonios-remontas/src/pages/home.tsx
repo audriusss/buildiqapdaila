@@ -1,3 +1,4 @@
+import { useState, useRef } from "react";
 import { Layout } from "@/components/layout";
 import { SEO } from "@/components/seo";
 import { ContactForm } from "@/components/contact-form";
@@ -7,9 +8,98 @@ import {
   ArrowRight, Phone, Clock, Shield, User,
   Hammer, Wrench, Droplets, LayoutGrid,
   Zap, Paintbrush, ShowerHead, MessageSquare,
-  ChevronRight,
+  ChevronRight, ChevronLeft,
 } from "lucide-react";
 import { useListProjects } from "@workspace/api-client-react";
+
+const REELS = [
+  "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1381975463444032%2F&show_text=false&width=267&t=0",
+  "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1355644268870502%2F&show_text=false&width=235&t=0",
+  "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F3247807962034145%2F&show_text=false&width=235&t=0",
+  "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1296203845861618%2F&show_text=false&width=235&t=0",
+];
+
+function ReelCarousel() {
+  const [active, setActive] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+
+  const prev = () => setActive((i) => (i - 1 + REELS.length) % REELS.length);
+  const next = () => setActive((i) => (i + 1) % REELS.length);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const delta = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(delta) > 40) delta > 0 ? next() : prev();
+    touchStartX.current = null;
+  };
+
+  return (
+    <div
+      className="flex flex-col items-center gap-3 select-none"
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
+    >
+      {/* Video card */}
+      <div
+        className="relative overflow-hidden"
+        style={{
+          width: 267,
+          height: 476,
+          border: "1px solid rgba(180,130,70,0.18)",
+          boxShadow: "0 8px 48px rgba(0,0,0,0.65), 0 0 0 1px rgba(180,130,70,0.06)",
+        }}
+      >
+        <iframe
+          key={active}
+          src={REELS[active]}
+          width={267}
+          height={476}
+          style={{ border: "none", display: "block" }}
+          scrolling="no"
+          frameBorder="0"
+          allowFullScreen
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+          title={`Vonios remontas Klaipėdoje – reel ${active + 1}`}
+        />
+      </div>
+
+      {/* Controls: prev · dots · next */}
+      <div className="flex items-center gap-4">
+        <button
+          onClick={prev}
+          aria-label="Ankstesnis video"
+          className="text-foreground/35 hover:text-primary transition-colors"
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
+
+        <div className="flex gap-2">
+          {REELS.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setActive(i)}
+              aria-label={`Video ${i + 1}`}
+              className={`w-1.5 h-1.5 rounded-full transition-colors ${
+                i === active ? "bg-primary" : "bg-white/20 hover:bg-white/40"
+              }`}
+            />
+          ))}
+        </div>
+
+        <button
+          onClick={next}
+          aria-label="Kitas video"
+          className="text-foreground/35 hover:text-primary transition-colors"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
+      </div>
+    </div>
+  );
+}
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -60,69 +150,83 @@ export default function Home() {
         </div>
 
         <div className="container mx-auto px-6 relative z-10 pt-28 pb-20 md:pt-32 md:pb-24">
-          <div className="max-w-2xl">
-            {/* Eyebrow */}
-            <motion.p
-              className="text-[10px] md:text-xs uppercase tracking-[0.25em] text-primary font-sans font-medium mb-6"
-              variants={fadeUp} initial="hidden" animate="show" custom={0}
-            >
-              Vienas meistras — visas vonios remontas
-            </motion.p>
+          <div className="flex flex-col lg:flex-row lg:items-center lg:gap-12 xl:gap-20">
 
-            {/* H1 */}
-            <motion.h1
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-semibold leading-[1.0] mb-8 text-foreground"
-              variants={fadeUp} initial="hidden" animate="show" custom={1}
-            >
-              Vonios remontas
-              <br />
-              <em className="not-italic italic text-primary">Klaipėdoje</em>
-            </motion.h1>
+            {/* ── LEFT: unchanged hero content ── */}
+            <div className="max-w-2xl lg:flex-1">
+              {/* Eyebrow */}
+              <motion.p
+                className="text-[10px] md:text-xs uppercase tracking-[0.25em] text-primary font-sans font-medium mb-6"
+                variants={fadeUp} initial="hidden" animate="show" custom={0}
+              >
+                Vienas meistras — visas vonios remontas
+              </motion.p>
 
-            {/* Subheading */}
-            <motion.p
-              className="text-base md:text-lg text-foreground/70 mb-10 max-w-lg leading-relaxed"
-              variants={fadeUp} initial="hidden" animate="show" custom={2}
-            >
-              Visi darbai iš vienų rankų — nuo griovimo iki paskutinės plytelės. Daugiau nei 10 metų patirties. Dirbu Klaipėdoje ir aplinkiniuose rajonuose.
-            </motion.p>
+              {/* H1 */}
+              <motion.h1
+                className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-semibold leading-[1.0] mb-8 text-foreground"
+                variants={fadeUp} initial="hidden" animate="show" custom={1}
+              >
+                Vonios remontas
+                <br />
+                <em className="not-italic italic text-primary">Klaipėdoje</em>
+              </motion.h1>
 
-            {/* Trust badges */}
+              {/* Subheading */}
+              <motion.p
+                className="text-base md:text-lg text-foreground/70 mb-10 max-w-lg leading-relaxed"
+                variants={fadeUp} initial="hidden" animate="show" custom={2}
+              >
+                Visi darbai iš vienų rankų — nuo griovimo iki paskutinės plytelės. Daugiau nei 10 metų patirties. Dirbu Klaipėdoje ir aplinkiniuose rajonuose.
+              </motion.p>
+
+              {/* Trust badges */}
+              <motion.div
+                className="flex flex-wrap gap-6 mb-10 text-sm text-foreground/60"
+                variants={fadeUp} initial="hidden" animate="show" custom={3}
+              >
+                {[
+                  { icon: Clock,  label: "10+ metų patirtis" },
+                  { icon: Shield, label: "Pilnas vonios remontas" },
+                  { icon: User,   label: "Vienas meistras — visa atsakomybė" },
+                ].map(({ icon: Icon, label }) => (
+                  <div key={label} className="flex items-center gap-2">
+                    <Icon className="w-4 h-4 text-primary shrink-0" strokeWidth={1.5} />
+                    <span>{label}</span>
+                  </div>
+                ))}
+              </motion.div>
+
+              {/* CTAs */}
+              <motion.div
+                className="flex flex-col sm:flex-row gap-3"
+                variants={fadeUp} initial="hidden" animate="show" custom={4}
+              >
+                <a
+                  href="#susisiekti"
+                  className="inline-flex items-center justify-center px-8 h-13 bg-primary text-primary-foreground font-medium text-sm uppercase tracking-widest hover:bg-primary/90 transition-colors"
+                >
+                  Gauti pasiūlymą
+                </a>
+                <Link
+                  href="/darbai"
+                  className="inline-flex items-center justify-center gap-2 px-8 h-13 border border-white/15 text-foreground/80 font-medium text-sm uppercase tracking-widest hover:border-white/30 hover:text-foreground transition-colors group"
+                >
+                  Peržiūrėti darbus
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+              </motion.div>
+            </div>
+
+            {/* ── RIGHT: Facebook Reel carousel ── */}
+            {/* Desktop: right column in hero. Mobile: stacked below CTAs (before Services). */}
             <motion.div
-              className="flex flex-wrap gap-6 mb-10 text-sm text-foreground/60"
-              variants={fadeUp} initial="hidden" animate="show" custom={3}
+              className="mt-12 lg:mt-0 flex justify-center lg:justify-end lg:flex-shrink-0"
+              variants={fadeUp} initial="hidden" animate="show" custom={5}
             >
-              {[
-                { icon: Clock,  label: "10+ metų patirtis" },
-                { icon: Shield, label: "Pilnas vonios remontas" },
-                { icon: User,   label: "Vienas meistras — visa atsakomybė" },
-              ].map(({ icon: Icon, label }) => (
-                <div key={label} className="flex items-center gap-2">
-                  <Icon className="w-4 h-4 text-primary shrink-0" strokeWidth={1.5} />
-                  <span>{label}</span>
-                </div>
-              ))}
+              <ReelCarousel />
             </motion.div>
 
-            {/* CTAs */}
-            <motion.div
-              className="flex flex-col sm:flex-row gap-3"
-              variants={fadeUp} initial="hidden" animate="show" custom={4}
-            >
-              <a
-                href="#susisiekti"
-                className="inline-flex items-center justify-center px-8 h-13 bg-primary text-primary-foreground font-medium text-sm uppercase tracking-widest hover:bg-primary/90 transition-colors"
-              >
-                Gauti pasiūlymą
-              </a>
-              <Link
-                href="/darbai"
-                className="inline-flex items-center justify-center gap-2 px-8 h-13 border border-white/15 text-foreground/80 font-medium text-sm uppercase tracking-widest hover:border-white/30 hover:text-foreground transition-colors group"
-              >
-                Peržiūrėti darbus
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-              </Link>
-            </motion.div>
           </div>
         </div>
 
