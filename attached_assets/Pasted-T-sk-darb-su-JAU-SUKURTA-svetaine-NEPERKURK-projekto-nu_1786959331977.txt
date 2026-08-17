@@ -1,0 +1,728 @@
+Tęsk darbą su JAU SUKURTA svetaine. NEPERKURK projekto nuo nulio ir NESUGADINK jau veikiančių funkcijų, route, SEO puslapių, galerijos, FAQ, formos ir backend.
+
+Pirmiausia apžiūrėk dabartinę implementaciją ir išsaugok visą veikiančią funkcionalumo bei SEO architektūrą.
+
+PAGRINDINĖ UŽDUOTIS:
+
+Perdaryk dabartinės svetainės vizualinį dizainą į tamsų, modernų, premium 2026 m. architektūros / interjero studijos stilių.
+
+Dabartinis šviesus dizainas yra per paprastas.
+
+Noriu tamsaus, prabangaus, išskirtinio dizaino, panašaus į premium vonios/interjero studijos svetainę.
+
+# BRAND
+
+Pakeisk dabartinį „Voniosr.lt“ brandą į:
+
+BuildIQ
+
+Šalia mažesniu tekstu:
+
+VONIOS REMONTAS
+KLAIPĖDOJE
+
+Production domenas bus:
+
+https://buildiq.lt
+
+Todėl visi canonical URL, sitemap URL, Open Graph URL, structured data ir kiti absolute SEO URL turi naudoti:
+
+https://buildiq.lt
+
+# DIZAINO KRYPTIS
+
+Visa svetainė turi būti DARK PREMIUM.
+
+Pagrindinės spalvos:
+
+Background:
+#0B0B0B arba labai artima beveik juoda spalva.
+
+Secondary sections:
+#111111
+#151515
+#181818
+
+Cards:
+#171717 – #1D1D1D
+
+Primary text:
+#F1EEE8
+
+Secondary text:
+#A9A49C
+
+Accent:
+šilta bronzos / champagne / muted gold spalva.
+
+Pavyzdžiui:
+#B78A52
+#C29A63
+#D0A76A
+
+Accent spalvą naudoti subtiliai.
+
+JOKIO ryškaus geltono aukso.
+
+JOKIO corporate blue.
+
+JOKIŲ ryškių gradientų.
+
+JOKIŲ neoninių efektų.
+
+Dizainas turi atrodyti brangus dėl proporcijų, tipografijos, nuotraukų ir whitespace, o ne dėl efektų.
+
+# TIPOGRAFIJA
+
+Naudoti dviejų tipų šriftų sistemą.
+
+Didelėms antraštėms:
+elegantiškas editorial serif.
+
+Body / navigation / buttons:
+modernus švarus sans-serif.
+
+Didelės antraštės turi būti architektūrinio/editorial stiliaus.
+
+Galima kai kuriuos žodžius parodyti italic serif bronzos spalva.
+
+Pavyzdžiui:
+
+Vonios remontas
+Klaipėdoje
+
+„Vonios remontas“ – off-white serif.
+„Klaipėdoje“ – italic serif bronze.
+
+# HEADER
+
+Header tamsus, minimalistinis.
+
+Kairėje:
+
+BuildIQ
+
+šalia mažu tekstu:
+
+VONIOS REMONTAS
+KLAIPĖDOJE
+
+Centre arba dešinėje:
+
+Pradžia
+Darbai
+FAQ
+Gauti pasiūlymą
+
+Toliau:
+
+telefono ikonėlė
++370 674 96909
+
+Telefonas clickable:
+
+tel:+37067496909
+
+Active navigation elementui naudoti subtilią bronzos liniją.
+
+Header gali būti sticky.
+
+Scroll metu gali gauti subtilų tamsų blur/background efektą.
+
+# HERO
+
+Hero turi būti pagrindinis WOW elementas.
+
+Naudoti labai tamsią modernios vonios nuotrauką per didelę dešinę ekrano dalį.
+
+Kairėje turi būti tamsus fonas / gradient overlay, kad tekstas būtų labai aiškiai skaitomas.
+
+Hero turi užimti didelę pirmo ekrano dalį.
+
+Virš pagrindinės antraštės mažas uppercase tekstas:
+
+VIENAS MEISTRAS — VISAS VONIOS REMONTAS
+
+Toliau didelis H1:
+
+Vonios remontas
+Klaipėdoje
+
+Po H1:
+
+Visi darbai iš vienų rankų — nuo griovimo iki paskutinės plytelės.
+
+Po tekstu 3 nedideli trust elementai su minimalistinėmis line icons:
+
+10+ metų patirtis
+
+Pilnas vonios remontas
+
+Vienas meistras — visa atsakomybė
+
+Po jais CTA:
+
+GAUTI PASIŪLYMĄ
+
+ir secondary:
+
+PERŽIŪRĖTI DARBUS
+
+Primary CTA:
+bronzinis/champagne background.
+
+Secondary:
+transparent/dark su plonu bronze border.
+
+Hero neturi atrodyti kaip standartinis React template.
+
+Jis turi atrodyti kaip custom premium architecture website.
+
+# NUOTRAUKOS
+
+Kol kas galima palikti dabartines placeholder/AI nuotraukas.
+
+Vėliau jos bus pakeistos REALIOMIS mano atliktų darbų nuotraukomis.
+
+Todėl komponentus suprojektuok taip, kad nuotraukas būtų labai paprasta pakeisti.
+
+Nenaudok labai šviesių stock vonių kaip pagrindinės dizaino krypties.
+
+Prioritetas:
+
+dark bathroom
+charcoal tiles
+stone
+concrete
+black fixtures
+warm indirect lighting
+LED mirror
+architectural photography
+
+# PASLAUGŲ SEKCIJA
+
+Po hero:
+
+tamsi sekcija.
+
+Kairėje:
+
+PASLAUGOS
+
+Didelė antraštė:
+
+Visi darbai iš
+vienų rankų
+
+„vienų rankų“ galima parodyti bronze italic serif.
+
+Trumpas tekstas:
+
+Atlieku visus vonios remonto darbus — nuo paruošimo iki pilno įrengimo. Jums nereikia ieškoti kelių skirtingų meistrų.
+
+Dešinėje padaryti premium paslaugų grid.
+
+Pavyzdžiui 2 eilės × 4 kortelės desktop.
+
+Kortelės:
+
+Griovimo darbai ir paruošimas
+
+Santechnikos darbai
+
+Plytelių klijavimas ir apdaila
+
+Hidroizoliacija
+
+Elektros instaliacija vonioje
+
+Gipso kartono konstrukcijos
+
+Dušo, vonios, WC montavimas
+
+Konsultacijos ir medžiagų parinkimas
+
+Kiekvienai:
+
+minimalistinė line icon bronzos spalva;
+pavadinimas;
+subtilus border;
+dark card background.
+
+Hover:
+
+labai subtiliai pašviesėja border/background.
+
+JOKIŲ didelių animacijų.
+
+Po paslaugomis:
+
+Žiūrėti visas paslaugas →
+
+Tai gali vesti į atitinkamus SEO paslaugų puslapius arba paslaugų sekciją.
+
+# ATLIKTŲ DARBŲ SEKCIJA
+
+Sekcijos heading:
+
+REZULTATAS MATOMAS
+GERIAU NEI PAŽADAI
+
+Naudoti 3 dideles projektų korteles desktop.
+
+Kiekvienoje:
+
+didelė nuotrauka;
+projekto pavadinimas;
+miestas;
+plotas.
+
+Pavyzdžiai:
+
+6 m² vonios remontas Klaipėdoje
+
+5 m² vonios įrengimas Gargžduose
+
+4,5 m² vonia su dušo zona Palangoje
+
+Before/after funkciją, kuri jau sukurta, IŠSAUGOTI.
+
+PRIEŠ ir PO žymos turi būti mažos, premium ir tamsios.
+
+Projektų kortelės turi vesti į jau sukurtus individualius projekto URL.
+
+NENAikinti individualių projektų puslapių.
+
+# INDIVIDUALŪS PROJEKTŲ PUSLAPIAI
+
+Dabartinius:
+
+/darbai/...
+
+IŠSAUGOTI.
+
+Tačiau jų dizainą taip pat pakeisti į dark premium.
+
+Didelis projekto pavadinimas.
+
+Vieta.
+Plotas.
+Aprašymas.
+Atlikti darbai.
+Didelės nuotraukos.
+Before/after.
+Galerija.
+
+Naudoti tą pačią bendrą design system kaip homepage.
+
+# UŽKLAUSOS FORMA
+
+Homepage apačioje padaryti labai stiprią premium užklausos sekciją.
+
+Ji neturi atrodyti kaip paprasta balta HTML forma.
+
+Didelė dark card/container.
+
+Desktop galima suskirstyti į 3 dalis.
+
+KAIRĖ:
+
+vonios nuotrauka / atmospheric background.
+
+Ant jos:
+
+Papasakokite apie savo
+vonios remontą
+
+Trumpai aprašykite darbus. Jei turite nuotraukų — pridėkite, tačiau tai nėra privaloma.
+
+CENTRAS:
+
+forma.
+
+Laukai:
+
+Vardas
+
+Telefono numeris *
+
+Miestas
+
+Pageidaujamas darbų terminas
+
+Darbų aprašymas *
+
+Pridėti nuotraukas (nebūtina)
+
+iki 5 nuotraukų.
+
+CTA:
+
+Gauti pasiūlymą
+
+DEŠINĖ:
+
+kontaktinė informacija.
+
++370 674 96909
+
+Klaipėda ir aplinkiniai rajonai
+
+Klaipėda, Gargždai, Kretinga, Palanga ir kt.
+
+Galima pridėti:
+
+Greitas atsakymas
+
+Tačiau NERAŠYTI garantijos „atsakome tą pačią dieną“, jeigu tai nėra garantuojama.
+
+# TELEGRAM
+
+Jau suplanuotą / sukurtą Telegram integraciją IŠSAUGOTI.
+
+Environment variables:
+
+TELEGRAM_BOT_TOKEN
+TELEGRAM_CHAT_ID
+
+Forma turi siųsti:
+
+vardą;
+telefono numerį;
+miestą;
+darbų aprašymą;
+pageidaujamą terminą;
+iki 5 optional nuotraukų.
+
+Jeigu Telegram env nėra sukonfigūruoti development režime, aplikacija neturi crashinti.
+
+# FAQ
+
+IŠSAUGOTI dabartinį FAQ puslapį ir visą jo turinį.
+
+Tik pakeisti vizualinį dizainą į dark premium.
+
+Accordion turi būti minimalistinis.
+
+Dark background.
+Subtle borders.
+Bronze + icon.
+Off-white text.
+
+SEO struktūros nekeisti.
+
+# SEO PUSLAPIAI
+
+LABAI SVARBU:
+
+NENAikinti ir nesujungti jau sukurtų SEO landing pages.
+
+Išsaugoti:
+
+/vonios-remontas-klaipeda
+
+/plyteliu-klijavimas-klaipeda
+
+/santechnikos-darbai-klaipeda
+
+/vonios-remonto-kaina
+
+/didelio-formato-plyteliu-klijavimas
+
+/vonios-griovimo-darbai
+
+/vonios-hidroizoliacija
+
+/potinkinio-wc-montavimas
+
+/duso-trapo-montavimas
+
+/grindu-betonavimas-klaipeda
+
+Jų dizainą galima pritaikyti naujai dark design system.
+
+Bet kiekvienas turi išlaikyti:
+
+unikalų title;
+unikalų meta description;
+canonical;
+H1;
+unikalų tekstą;
+internal links;
+CTA;
+structured data, kur tinkama.
+
+# BUILDIDQ DOMENAS
+
+Visą projektą paruošti production domenui:
+
+https://buildiq.lt
+
+Canonical pavyzdys:
+
+https://buildiq.lt/vonios-remontas-klaipeda
+
+Sitemap turi naudoti:
+
+https://buildiq.lt/...
+
+OpenGraph URL:
+
+https://buildiq.lt/...
+
+JSON-LD URL:
+
+https://buildiq.lt/...
+
+Nenaudoti Replit development URL kaip canonical.
+
+# SEO
+
+SEO yra KRITINĖ projekto dalis.
+
+Vizualinio redesign metu SEO NEGALI suprastėti.
+
+Išsaugoti arba pagerinti:
+
+robots.txt
+
+sitemap.xml
+
+unique metadata
+
+canonical
+
+Open Graph
+
+structured data
+
+LocalBusiness / tinkamiausią local service schema
+
+Service schema
+
+BreadcrumbList
+
+project structured data
+
+alt attributes
+
+semantic headings
+
+internal linking
+
+404
+
+mobile usability
+
+Core Web Vitals
+
+# SVARBI SEO PASTABA DĖL REACT
+
+Vien react-helmet-async neužtenka, jeigu metadata ir pagrindinis SEO turinys crawler'iui atsiranda tik po client-side JavaScript execution.
+
+Patikrink dabartinę architektūrą.
+
+Svarbiausi indeksuojami puslapiai turi turėti crawler-readable HTML.
+
+Jeigu dabartinis Vite SPA to neužtikrina, pridėk tinkamą prerendering/SSR/static generation sprendimą svarbiausiems public SEO route.
+
+Patikrink rezultatą pagal realų generated HTML / View Source, ne tik browser DOM.
+
+# PERFORMANCE
+
+Nepaversk puslapio sunkiu vien dėl dizaino.
+
+Prioritetas:
+
+Core Web Vitals.
+
+Optimizuoti nuotraukas.
+
+Responsive srcset/sizes, jei tinkama.
+
+WebP/AVIF.
+
+Lazy loading below-the-fold.
+
+Hero image turi būti optimizuota LCP.
+
+Nenaudoti didelių video hero.
+
+Nenaudoti sunkių animation bibliotekų, jeigu CSS gali padaryti tą patį.
+
+Animation turi būti subtle.
+
+# MOBILE
+
+Mobile turi atrodyti premium, o ne būti tiesiog suspausta desktop versija.
+
+Hero:
+
+aiškus tekstas;
+nuotrauka;
+CTA;
+jokio horizontalaus overflow.
+
+Paslaugos:
+
+1 arba 2 columns pagal plotį.
+
+Projektų galerija:
+
+swipe-friendly.
+
+Forma:
+
+vienas column.
+
+Apačioje galima sticky mobile CTA:
+
+Skambinti
+
+Gauti pasiūlymą
+
+Sticky CTA neturi uždengti turinio.
+
+# FOOTER
+
+Dark footer.
+
+Kairėje:
+
+BuildIQ
+
+VONIOS REMONTAS
+KLAIPĖDOJE
+
+Centre:
+
+Pradžia
+Darbai
+FAQ
+Gauti pasiūlymą
+
+SEO paslaugų nuorodos gali būti papildomoje subtilioje footer dalyje.
+
+Dešinėje:
+
++370 674 96909
+
+Metai generuojami automatiškai.
+
+Nenaudoti fake social media profilių.
+
+# KO NEDARYTI
+
+NENAUDOTI:
+
+corporate blue;
+
+bright white sections;
+
+didelių gradientų;
+
+neon;
+
+glassmorphism visur;
+
+per daug rounded SaaS cards;
+
+milžiniškų border radius;
+
+stock SaaS ikonų stiliaus;
+
+nereikalingų popup;
+
+fake reviews;
+
+fake ratings;
+
+fake customer counts;
+
+fake completed project counts;
+
+fake awards;
+
+fake certifications;
+
+Lorem Ipsum.
+
+Tai yra VONIOS REMONTO MEISTRO premium svetainė, ne SaaS produktas.
+
+# IMPLEMENTAVIMO TVARKA
+
+1. Pirmiausia inspect dabartinį projektą.
+
+2. Identifikuok visus esamus route ir SEO komponentus.
+
+3. Nieko veikiančio nešalink.
+
+4. Sukurk centralizuotą dark design system.
+
+5. Perdaryk Header.
+
+6. Perdaryk Homepage Hero.
+
+7. Perdaryk paslaugų sekciją.
+
+8. Perdaryk darbų preview.
+
+9. Perdaryk užklausos sekciją.
+
+10. Pritaikyk design system /darbai.
+
+11. Pritaikyk individualiems projektams.
+
+12. Pritaikyk FAQ.
+
+13. Pritaikyk SEO landing pages.
+
+14. Pakeisk brandą iš Voniosr.lt į BuildIQ.
+
+15. Pakeisk production SEO base URL į https://buildiq.lt.
+
+16. Patikrink mobile.
+
+17. Patikrink SEO.
+
+18. Patikrink build.
+
+# FINAL VERIFICATION
+
+Prieš paskelbdamas, kad darbas baigtas:
+
+* paleisk TypeScript check;
+* paleisk production build;
+* patikrink, kad nėra runtime errors;
+* patikrink homepage;
+* patikrink /darbai;
+* atidaryk bent vieną /darbai/... projektą;
+* patikrink /faq;
+* patikrink VISUS SEO landing route;
+* patikrink contact form validation;
+* patikrink optional image upload;
+* patikrink Telegram integracijos kodą;
+* patikrink robots.txt;
+* patikrink sitemap.xml;
+* patikrink canonical;
+* patikrink JSON-LD;
+* patikrink generated HTML / View Source svarbiausiems SEO puslapiams;
+* patikrink mobile layout;
+* patikrink, kad nėra horizontal overflow;
+* patikrink broken links;
+* patikrink, kad niekur neliko „Voniosr.lt“, jei tai buvo senas placeholder brandas;
+* patikrink, kad production SEO URL visur yra buildiq.lt.
+
+Nedaryk tik paviršinio CSS recolor.
+
+Tikslas yra pilnas vizualinis redesign:
+
+DARK + ARCHITECTURAL + PREMIUM + MINIMAL + WARM BRONZE + REAL CRAFTSMANSHIP.
+
+Rezultatas turi atrodyti kaip aukštos klasės interjero/architektūros studijos svetainė, tačiau išlikti aiškus, greitas ir orientuotas į realias vonios remonto užklausas.
+
+SVARBIAUSIA:
+
+NEPERKURK VEIKIANČIOS ARCHITEKTŪROS NUO NULIO.
+IŠSAUGOK SEO IR FUNKCIONALUMĄ.
+PAKEISK DIZAINĄ Į DARK PREMIUM BUILDIQ.

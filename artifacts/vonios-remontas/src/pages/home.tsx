@@ -1,140 +1,230 @@
 import { Layout } from "@/components/layout";
 import { SEO } from "@/components/seo";
 import { ContactForm } from "@/components/contact-form";
-import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, ChevronRight } from "lucide-react";
+import {
+  ArrowRight, Phone, Clock, Shield, User,
+  Hammer, Wrench, Droplets, LayoutGrid,
+  Zap, Paintbrush, ShowerHead, MessageSquare,
+  ChevronRight,
+} from "lucide-react";
 import { useListProjects } from "@workspace/api-client-react";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: (i: number) => ({ opacity: 1, y: 0, transition: { duration: 0.7, delay: i * 0.12, ease: "easeOut" as const } }),
+};
+
+const services = [
+  { icon: Hammer,      title: "Griovimo darbai ir paruošimas",     desc: "Senos apdailos pašalinimas, šiukšlių išvežimas, patalpos paruošimas remontui." },
+  { icon: Wrench,      title: "Santechnikos darbai",                desc: "Vamzdynų keitimas, potinkinio WC, dušo trapo, maišytuvų montavimas." },
+  { icon: LayoutGrid,  title: "Plytelių klijavimas ir apdaila",     desc: "Visų formatų plytelės — įskaitant 120×60, 120×120. Tikslūs 45° kampai." },
+  { icon: Droplets,    title: "Hidroizoliacija",                    desc: "Daugiasluoksnė apsauga nuo drėgmės ir pelėsio drėgnose zonose." },
+  { icon: Zap,         title: "Elektros instaliacija vonioje",      desc: "Šviestuvų, lizdų, grindinio šildymo pajungimas pagal normas." },
+  { icon: Paintbrush,  title: "Gipso kartono konstrukcijos",        desc: "Karkasų, niešų ir pertvarų montavimas, paviršių glaistymas." },
+  { icon: ShowerHead,  title: "Dušo, vonios, WC montavimas",       desc: "Galutinis santechnikos prietaisų ir baldų montavimas ir pajungimas." },
+  { icon: MessageSquare, title: "Konsultacijos ir medžiagų parinkimas", desc: "Padėsiu išsirinkti plyteles, santechniką ir sudarysiu tikslią sąmatą." },
+];
 
 export default function Home() {
   const { data: projects = [] } = useListProjects();
-  const previewProjects = projects.slice(0, 4);
+  const previewProjects = projects.slice(0, 3);
 
   return (
     <Layout>
-      <SEO 
+      <SEO
         title="Vonios remontas Klaipėdoje | Plytelių klijavimas"
         description="Aukščiausios kokybės vonios kambario įrengimas ir remontas Klaipėdoje. Daugiau nei 10 metų patirties. Visi darbai iš vienų rankų."
         path="/"
       />
 
-      {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center pt-24 pb-16 overflow-hidden">
+      {/* ══ HERO ══ */}
+      <section className="relative min-h-[100svh] flex items-center overflow-hidden">
+        {/* Background image — right side dominant */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-background/80 md:bg-background/40 z-10" />
-          <img 
-            src="/assets/hero.jpg" 
-            alt="Premium vonios kambario interjeras" 
+          <img
+            src="/assets/hero.jpg"
+            alt="Premium vonios kambario interjeras"
             className="w-full h-full object-cover object-center"
             loading="eager"
+            fetchPriority="high"
           />
+          {/* Gradient: heavy left, light right */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0b0b0b] via-[#0b0b0b]/80 to-[#0b0b0b]/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0b0b0b]/60 via-transparent to-[#0b0b0b]/30" />
         </div>
-        
-        <div className="container mx-auto px-6 relative z-20">
-          <div className="max-w-3xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+
+        <div className="container mx-auto px-6 relative z-10 pt-28 pb-20 md:pt-32 md:pb-24">
+          <div className="max-w-2xl">
+            {/* Eyebrow */}
+            <motion.p
+              className="text-[10px] md:text-xs uppercase tracking-[0.25em] text-primary font-sans font-medium mb-6"
+              variants={fadeUp} initial="hidden" animate="show" custom={0}
             >
-              <h1 className="text-5xl md:text-7xl font-serif text-foreground leading-[1.1] mb-6">
-                Vonios remontas <br/>
-                <span className="italic text-foreground/80">Klaipėdoje</span>
-              </h1>
-            </motion.div>
-            
-            <motion.p 
-              className="text-lg md:text-xl text-foreground/80 mb-10 max-w-xl leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              Vienas meistras — visas vonios remontas
+            </motion.p>
+
+            {/* H1 */}
+            <motion.h1
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-semibold leading-[1.0] mb-8 text-foreground"
+              variants={fadeUp} initial="hidden" animate="show" custom={1}
+            >
+              Vonios remontas
+              <br />
+              <em className="not-italic italic text-primary">Klaipėdoje</em>
+            </motion.h1>
+
+            {/* Subheading */}
+            <motion.p
+              className="text-base md:text-lg text-foreground/70 mb-10 max-w-lg leading-relaxed"
+              variants={fadeUp} initial="hidden" animate="show" custom={2}
             >
               Visi darbai iš vienų rankų — nuo griovimo iki paskutinės plytelės. Daugiau nei 10 metų patirties. Dirbu Klaipėdoje ir aplinkiniuose rajonuose.
             </motion.p>
 
-            <motion.div 
-              className="flex flex-col sm:flex-row gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            {/* Trust badges */}
+            <motion.div
+              className="flex flex-wrap gap-6 mb-10 text-sm text-foreground/60"
+              variants={fadeUp} initial="hidden" animate="show" custom={3}
             >
-              <Button size="lg" asChild className="h-14 px-8 text-base">
-                <a href="#susisiekti">Gauti pasiūlymą</a>
-              </Button>
-              <Button size="lg" variant="outline" asChild className="h-14 px-8 text-base group bg-background/50 backdrop-blur-sm">
-                <Link href="/darbai">
-                  Peržiūrėti darbus
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </Button>
+              {[
+                { icon: Clock,  label: "10+ metų patirtis" },
+                { icon: Shield, label: "Pilnas vonios remontas" },
+                { icon: User,   label: "Vienas meistras — visa atsakomybė" },
+              ].map(({ icon: Icon, label }) => (
+                <div key={label} className="flex items-center gap-2">
+                  <Icon className="w-4 h-4 text-primary shrink-0" strokeWidth={1.5} />
+                  <span>{label}</span>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* CTAs */}
+            <motion.div
+              className="flex flex-col sm:flex-row gap-3"
+              variants={fadeUp} initial="hidden" animate="show" custom={4}
+            >
+              <a
+                href="#susisiekti"
+                className="inline-flex items-center justify-center px-8 h-13 bg-primary text-primary-foreground font-medium text-sm uppercase tracking-widest hover:bg-primary/90 transition-colors"
+              >
+                Gauti pasiūlymą
+              </a>
+              <Link
+                href="/darbai"
+                className="inline-flex items-center justify-center gap-2 px-8 h-13 border border-white/15 text-foreground/80 font-medium text-sm uppercase tracking-widest hover:border-white/30 hover:text-foreground transition-colors group"
+              >
+                Peržiūrėti darbus
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              </Link>
             </motion.div>
           </div>
         </div>
+
+        {/* Scroll hint */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-foreground/25 z-10 hidden md:flex">
+          <span className="text-[10px] uppercase tracking-[0.2em]">Slinkti</span>
+          <div className="w-px h-12 bg-gradient-to-b from-foreground/20 to-transparent" />
+        </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-24 bg-background">
+      {/* ══ SERVICES ══ */}
+      <section className="py-28 bg-[#111111]">
         <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-16 items-start">
-            <div className="sticky top-32">
-              <h2 className="text-4xl md:text-5xl font-serif mb-6">Visi vonios remonto darbai iš vienų rankų</h2>
-              <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-                Jums nereikės ieškoti atskirų meistrų santechnikai, elektrai ar plytelėms. Atlieku pilną vonios kambario įrengimą — nuo A iki Z, užtikrindamas aukščiausią kokybę kiekviename etape.
+          <div className="grid lg:grid-cols-[1fr_2fr] gap-16 lg:gap-20 items-start">
+            {/* Left sticky text */}
+            <div className="lg:sticky lg:top-32">
+              <p className="text-[10px] uppercase tracking-[0.25em] text-primary font-sans mb-4">Paslaugos</p>
+              <h2 className="text-4xl md:text-5xl font-serif leading-tight mb-6">
+                Visi darbai iš{" "}
+                <em className="not-italic italic text-primary">vienų rankų</em>
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-8 max-w-sm">
+                Atlieku visus vonios remonto darbus — nuo paruošimo iki pilno įrengimo. Jums nereikia ieškoti kelių skirtingų meistrų.
               </p>
-              <Button variant="link" asChild className="px-0 text-lg group">
-                <Link href="/faq">
-                  Dažniausiai užduodami klausimai
-                  <ChevronRight className="ml-1 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </Button>
+              <Link
+                href="/faq"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group"
+              >
+                Dažniausiai užduodami klausimai
+                <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              </Link>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-x-8 gap-y-10">
-              {[
-                { title: "Griovimo darbai", desc: "Senų plytelių, santechnikos šalinimas, statybinių šiukšlių išvežimas." },
-                { title: "Santechnika", desc: "Vamzdžių vedžiojimas, potinkinio WC, dušo trapo, maišytuvų montavimas." },
-                { title: "Hidroizoliacija", desc: "Patikima apsauga nuo drėgmės ir pelėsio drėgnose zonose." },
-                { title: "Plytelių klijavimas", desc: "Visų formatų plytelių klijavimas, įskaitant didelio formato (120x60, 120x120)." },
-                { title: "Elektros darbai", desc: "Šviestuvų, rozečių, grindinio šildymo pajungimas." },
-                { title: "Apdaila", desc: "Lubų ir sienų gipso montavimas, glaistymas, dažymas." }
-              ].map((service, i) => (
-                <div key={i} className="group">
-                  <div className="mb-4">
-                    <CheckCircle2 className="w-8 h-8 text-primary/40 group-hover:text-primary transition-colors" />
+            {/* Right service grid */}
+            <div className="grid sm:grid-cols-2 gap-px bg-white/5">
+              {services.map((svc, i) => {
+                const Icon = svc.icon;
+                return (
+                  <div
+                    key={i}
+                    className="bg-[#111111] p-6 md:p-8 group hover:bg-[#161616] transition-colors border border-transparent hover:border-white/5"
+                  >
+                    <Icon className="w-5 h-5 text-primary mb-4" strokeWidth={1.5} />
+                    <h3 className="text-base font-serif font-medium mb-2 text-foreground">{svc.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{svc.desc}</p>
                   </div>
-                  <h3 className="text-xl font-serif mb-2">{service.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{service.desc}</p>
-                </div>
-              ))}
+                );
+              })}
             </div>
+          </div>
+
+          <div className="mt-12 pt-8 border-t border-white/5">
+            <Link
+              href="/vonios-remontas-klaipeda"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group"
+            >
+              Žiūrėti visas paslaugas
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Gallery Preview */}
-      <section className="py-24 bg-foreground text-background">
+      {/* ══ GALLERY PREVIEW ══ */}
+      <section className="py-28 bg-background">
         <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-            <h2 className="text-4xl md:text-5xl font-serif max-w-xl">Rezultatas matomas geriau nei pažadai</h2>
-            <Button variant="outline" asChild className="border-background/20 text-background hover:bg-background hover:text-foreground">
-              <Link href="/darbai">Visi projektai</Link>
-            </Button>
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.25em] text-primary font-sans mb-4">Atlikti darbai</p>
+              <h2 className="text-4xl md:text-5xl font-serif leading-tight">
+                Rezultatas matomas<br />
+                <span className="text-foreground/50">geriau nei pažadai</span>
+              </h2>
+            </div>
+            <Link
+              href="/darbai"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group shrink-0"
+            >
+              Visi projektai
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-3 gap-4">
             {previewProjects.map((project) => (
-              <Link key={project.slug} href={`/darbai/${project.slug}`} className="group block relative overflow-hidden bg-background/5 aspect-[4/3]">
-                <img 
-                  src={project.mainImage?.url} 
+              <Link
+                key={project.slug}
+                href={`/darbai/${project.slug}`}
+                className="group block relative overflow-hidden aspect-[3/4] bg-card"
+              >
+                <img
+                  src={project.mainImage?.url}
                   alt={project.mainImage?.alt}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
-                <div className="absolute bottom-0 left-0 right-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform">
-                  <p className="text-primary font-medium mb-2">{project.city}</p>
-                  <h3 className="text-2xl font-serif text-white">{project.title}</h3>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <p className="text-primary text-xs uppercase tracking-widest mb-1.5">{project.city}</p>
+                  <h3 className="text-xl font-serif text-white leading-snug">{project.title}</h3>
+                  {project.area && (
+                    <p className="text-white/40 text-xs mt-1">{project.area}</p>
+                  )}
+                </div>
+                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <ArrowRight className="w-5 h-5 text-white rotate-45" />
                 </div>
               </Link>
             ))}
@@ -142,18 +232,77 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="susisiekti" className="py-24 bg-background scroll-mt-20">
-        <div className="container mx-auto px-6 max-w-5xl">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif mb-6">Papasakokite apie savo vonios remontą</h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Aprašykite, kokius darbus reikia atlikti, arba tiesiog paskambinkite. Padėsiu rasti geriausią sprendimą ir paruošiu preliminarią sąmatą.
-            </p>
+      {/* ══ CONTACT ══ */}
+      <section id="susisiekti" className="py-0 bg-[#111111] scroll-mt-0">
+        <div className="grid lg:grid-cols-[2fr_3fr_1.5fr]">
+          {/* Col 1 — atmospheric image + text */}
+          <div className="relative hidden lg:block min-h-[600px]">
+            <img
+              src="/assets/hero.jpg"
+              alt="Vonios remontas"
+              className="absolute inset-0 w-full h-full object-cover object-center"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0b0b0b]/20 to-[#0b0b0b]/60" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+            <div className="absolute bottom-0 left-0 p-10">
+              <h2 className="text-3xl font-serif text-white leading-snug mb-3">
+                Papasakokite apie savo<br />
+                <em className="not-italic italic text-primary">vonios remontą</em>
+              </h2>
+              <p className="text-white/60 text-sm leading-relaxed max-w-xs">
+                Trumpai aprašykite darbus. Jei turite nuotraukų — pridėkite, tačiau tai nėra privaloma.
+              </p>
+            </div>
           </div>
 
-          <div className="bg-white p-8 md:p-12 border border-border">
+          {/* Col 2 — form */}
+          <div className="p-8 md:p-12 lg:p-14 border-x border-white/5">
+            {/* Mobile heading */}
+            <div className="lg:hidden mb-8">
+              <p className="text-[10px] uppercase tracking-[0.25em] text-primary font-sans mb-3">Susisiekite</p>
+              <h2 className="text-3xl font-serif leading-snug">
+                Papasakokite apie savo{" "}
+                <em className="not-italic italic text-primary">vonios remontą</em>
+              </h2>
+            </div>
             <ContactForm />
+          </div>
+
+          {/* Col 3 — contact info */}
+          <div className="p-8 md:p-12 lg:p-14 bg-[#0f0f0f] flex flex-col justify-between">
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.25em] text-primary font-sans mb-8">Kontaktai</p>
+
+              <div className="mb-8">
+                <p className="text-xs text-muted-foreground uppercase tracking-wider mb-2">Telefonas</p>
+                <a href="tel:+37067496909" className="text-2xl font-serif text-foreground hover:text-primary transition-colors">
+                  +370 674 96909
+                </a>
+              </div>
+
+              <div className="mb-8">
+                <p className="text-xs text-muted-foreground uppercase tracking-wider mb-2">Regionas</p>
+                <p className="text-foreground font-medium">Klaipėda</p>
+                <p className="text-muted-foreground text-sm mt-1">Gargždai · Kretinga · Palanga</p>
+              </div>
+
+              <div className="p-5 border border-primary/15 bg-primary/5">
+                <div className="flex items-center gap-2 mb-2">
+                  <Phone className="w-3.5 h-3.5 text-primary" strokeWidth={1.5} />
+                  <span className="text-xs uppercase tracking-wider text-primary font-medium">Greitas atsakymas</span>
+                </div>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  Paprastai susisieku per 1–2 darbo dienas.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-8 pt-8 border-t border-white/5">
+              <p className="text-xs text-muted-foreground">
+                Arba skambinkite tiesiogiai — visuomet mielai atsakysiu į Jūsų klausimus.
+              </p>
+            </div>
           </div>
         </div>
       </section>

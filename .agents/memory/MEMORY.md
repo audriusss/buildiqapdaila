@@ -1,0 +1,2 @@
+- [Dark premium design system](dark-design-system.md) — site uses dark-by-default :root palette, not dark class toggle; curly quotes in JS strings crash Babel parser.
+- [BuildIQ brand + SEO base](buildiq-seo.md) — brand is BuildIQ (was Voniosr.lt), all canonical/OG/sitemap URLs use https://buildiq.lt.

@@ -1,8 +1,7 @@
 import { Layout } from "@/components/layout";
 import { SEO } from "@/components/seo";
-import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { CheckCircle2 } from "lucide-react";
+import { ArrowLeft, Phone } from "lucide-react";
 
 interface SeoPageProps {
   title: string;
@@ -15,38 +14,60 @@ interface SeoPageProps {
 export default function SeoPage({ title, h1, description, content, slug }: SeoPageProps) {
   return (
     <Layout>
-      <SEO 
+      <SEO
         title={title}
         description={description}
         path={`/${slug}`}
       />
 
       <article className="pt-32 pb-24 bg-background min-h-[80vh]">
-        <div className="container mx-auto px-6 max-w-4xl">
-          <div className="mb-12">
-            <Link href="/" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors mb-6 inline-block">
-              &larr; Grįžti į pagrindinį
-            </Link>
-            <h1 className="text-4xl md:text-6xl font-serif mb-6 leading-tight">{h1}</h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">{description}</p>
+        <div className="container mx-auto px-6 max-w-3xl">
+          {/* Breadcrumb */}
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-muted-foreground hover:text-foreground mb-10 group transition-colors"
+          >
+            <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform" />
+            Grįžti į pagrindinį
+          </Link>
+
+          {/* Page header */}
+          <div className="mb-14">
+            <h1 className="text-4xl md:text-5xl font-serif mb-4 leading-tight">{h1}</h1>
+            <p className="text-lg text-muted-foreground leading-relaxed">{description}</p>
           </div>
 
-          <div className="prose prose-lg prose-p:text-muted-foreground prose-p:leading-relaxed prose-headings:font-serif prose-headings:font-normal prose-h2:text-3xl prose-li:text-muted-foreground max-w-none mb-16">
+          {/* Content */}
+          <div className="prose prose-invert max-w-none mb-16
+            prose-p:text-muted-foreground prose-p:leading-relaxed
+            prose-headings:font-serif prose-headings:font-normal prose-headings:text-foreground
+            prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
+            prose-li:text-muted-foreground
+            prose-strong:text-foreground prose-strong:font-medium
+            prose-ol:text-muted-foreground">
             {content}
           </div>
 
-          <div className="bg-foreground text-background p-10 md:p-16 text-center">
-            <h2 className="text-3xl font-serif mb-4 text-white">Reikalinga konsultacija?</h2>
-            <p className="text-background/80 mb-8 max-w-lg mx-auto">
+          {/* CTA block */}
+          <div className="border border-white/8 bg-[#111111] p-10 md:p-14">
+            <h2 className="text-2xl md:text-3xl font-serif mb-3">Reikalinga konsultacija?</h2>
+            <p className="text-muted-foreground text-sm mb-8 max-w-md">
               Susisiekite dėl nemokamos konsultacijos ir preliminarios sąmatos Jūsų objektui Klaipėdos regione.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button size="lg" variant="outline" asChild className="border-background/20 text-background hover:bg-background hover:text-foreground">
-                <a href="tel:+37067496909">+370 674 96909</a>
-              </Button>
-              <Button size="lg" asChild className="bg-primary text-primary-foreground hover:bg-primary/90 border-0">
-                <Link href="/#susisiekti">Gauti pasiūlymą</Link>
-              </Button>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="tel:+37067496909"
+                className="inline-flex items-center justify-center gap-2 px-6 h-11 border border-white/15 text-foreground text-sm font-medium hover:border-primary/40 hover:text-primary transition-colors"
+              >
+                <Phone className="w-4 h-4" strokeWidth={1.5} />
+                +370 674 96909
+              </a>
+              <Link
+                href="/#susisiekti"
+                className="inline-flex items-center justify-center px-6 h-11 bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
+              >
+                Gauti pasiūlymą
+              </Link>
             </div>
           </div>
         </div>
@@ -55,7 +76,7 @@ export default function SeoPage({ title, h1, description, content, slug }: SeoPa
   );
 }
 
-// Data generator for SEO pages
+// ── SEO pages data ──────────────────────────────────────────────────────────
 export const seoPagesData: Record<string, Omit<SeoPageProps, "slug">> = {
   "vonios-remontas-klaipeda": {
     title: "Vonios remontas Klaipėda",
@@ -76,7 +97,7 @@ export const seoPagesData: Record<string, Omit<SeoPageProps, "slug">> = {
         </ul>
         <p>Dirbu tvarkingai, laikydamasis technologinių reikalavimų, todėl rezultatas džiugins ilgus metus.</p>
       </>
-    )
+    ),
   },
   "plyteliu-klijavimas-klaipeda": {
     title: "Plytelių klijavimas Klaipėda",
@@ -90,11 +111,11 @@ export const seoPagesData: Record<string, Omit<SeoPageProps, "slug">> = {
         <ul>
           <li><strong>Plytelių pjovimas 45° kampu</strong> – išorinių kampų formavimui nenaudojami jokie plastikiniai ar metaliniai kampukai, tik tikslus plytelių suleidimas (gerontavimas).</li>
           <li>Tikslus plytelių išdėstymo planavimas, siekiant išvengti neestetiškų siaurų pjūvių matomose vietose.</li>
-          <li>Didelio formato plytelių (iki 120x60 cm ar net 120x120 cm) montavimas.</li>
+          <li>Didelio formato plytelių (iki 120×60 cm ar net 120×120 cm) montavimas.</li>
           <li>Aukščiausios kokybės klijų ir glaistų parinkimas pagal plytelių tipą ir pagrindą.</li>
         </ul>
       </>
-    )
+    ),
   },
   "santechnikos-darbai-klaipeda": {
     title: "Santechnikos darbai Klaipėdoje",
@@ -114,7 +135,7 @@ export const seoPagesData: Record<string, Omit<SeoPageProps, "slug">> = {
         </ul>
         <p>Naudoju tik laiko patikrintas vamzdynų sistemas (pvz., daugiasluoksnius ar presuojamus vamzdžius), garantuojančias apsaugą nuo pratekėjimo.</p>
       </>
-    )
+    ),
   },
   "vonios-remonto-kaina": {
     title: "Vonios remonto kaina",
@@ -127,29 +148,29 @@ export const seoPagesData: Record<string, Omit<SeoPageProps, "slug">> = {
         <p>Galutinė kaina susideda iš trijų pagrindinių dalių:</p>
         <ol>
           <li><strong>Darbo užmokestis:</strong> Priklauso nuo darbų apimties. Ar reikės griauti senas sienas? Ar teks iš naujo betonuoti grindis dušo trapui? Ar sienos labai kreivos ir reikalauja storo tinko sluoksnio?</li>
-          <li><strong>Juodosios statybinės medžiagos:</strong> Vamzdžiai, laidai, tinkas, gipskartonis, hidroizoliacija, plytelių klijai, silikonai. Tai dažniausiai sudaro apie 20-30% visos sumos.</li>
+          <li><strong>Juodosios statybinės medžiagos:</strong> Vamzdžiai, laidai, tinkas, gipskartonis, hidroizoliacija, plytelių klijai, silikonai. Tai dažniausiai sudaro apie 20–30% visos sumos.</li>
           <li><strong>Apdailos medžiagos ir santechnika:</strong> Plytelės, unitazas, dušo kabina, spintelė, maišytuvai. Tai dalis, kurią kontroliuojate Jūs. Kaina gali skirtis kartais, priklausomai nuo pasirinktų gamintojų.</li>
         </ol>
         <p>Vidutiniškai kapitalinis standartinės vonios remontas uostamiestyje (su darbais ir juodomis medžiagomis) prasideda nuo 3500 eurų. Norint tikslios sąmatos, būtina objekto apžiūra.</p>
       </>
-    )
+    ),
   },
   "didelio-formato-plyteliu-klijavimas": {
     title: "Didelio formato plytelių klijavimas",
     h1: "Didelio formato plytelių montavimas",
-    description: "120x60, 120x120 ir kitų didelių formatų plytelių klijavimas vonios kambariuose.",
+    description: "120×60, 120×120 ir kitų didelių formatų plytelių klijavimas vonios kambariuose.",
     content: (
       <>
-        <p>Didelio formato plytelės (120x60 cm, 120x120 cm ar dar didesnės) – tai modernios prabangos standartas. Jos kuria vientisą, erdvų vaizdą, mažiau matomų siūlių, todėl vonios kambarys atrodo kur kas estetiškiau ir jį lengviau prižiūrėti.</p>
+        <p>Didelio formato plytelės (120×60 cm, 120×120 cm ar dar didesnės) – tai modernios prabangos standartas. Jos kuria vientisą, erdvų vaizdą, mažiau matomų siūlių, todėl vonios kambarys atrodo kur kas estetiškiau ir jį lengviau prižiūrėti.</p>
         <h2>Svarbiausi niuansai klijuojant dideles plyteles</h2>
-        <p>Šių plytelių montavimas iš esmės skiriasi nuo standartinių (pvz., 60x60 cm) plytelių:</p>
+        <p>Šių plytelių montavimas iš esmės skiriasi nuo standartinių (pvz., 60×60 cm) plytelių:</p>
         <ul>
           <li><strong>Idealus sienų lygumas:</strong> Klijuojant dideles plyteles, sienos turi būti išlygintos milimetro tikslumu, kitaip išryškės nelygumai kampuose.</li>
           <li><strong>Specialūs klijai:</strong> Naudojami aukštos elastingumo klasės (S1 arba S2) klijai, kadangi didelės plokštės labiau reaguoja į temperatūros svyravimus ir pastato judėjimą.</li>
           <li><strong>Įranga:</strong> Reikalingos specialios pjaustymo staklės, transportavimo pritraukėjai. Turiu visą reikiamą įrangą darbui su dideliais formatais.</li>
         </ul>
       </>
-    )
+    ),
   },
   "vonios-griovimo-darbai": {
     title: "Vonios griovimo darbai Klaipėda",
@@ -168,7 +189,7 @@ export const seoPagesData: Record<string, Omit<SeoPageProps, "slug">> = {
         </ul>
         <p>Palieku patalpą visiškai švarią ir paruoštą sekančiam etapui – naujų sistemų vedžiojimui.</p>
       </>
-    )
+    ),
   },
   "vonios-hidroizoliacija": {
     title: "Vonios hidroizoliacija",
@@ -187,7 +208,7 @@ export const seoPagesData: Record<string, Omit<SeoPageProps, "slug">> = {
         </ul>
         <p><strong>Būtinosios zonos:</strong> Grindys visame vonios kambaryje (su užlaida ant sienų), ir sienos dušo ar vonios kabinos zonoje (iki pat lubų).</p>
       </>
-    )
+    ),
   },
   "potinkinio-wc-montavimas": {
     title: "Potinkinio WC montavimas",
@@ -205,7 +226,7 @@ export const seoPagesData: Record<string, Omit<SeoPageProps, "slug">> = {
           <li>Apdaila plytelėmis ir nuleidimo mygtuko bei paties puodo sumontavimas.</li>
         </ul>
       </>
-    )
+    ),
   },
   "duso-trapo-montavimas": {
     title: "Dušo trapo montavimas",
@@ -213,17 +234,17 @@ export const seoPagesData: Record<string, Omit<SeoPageProps, "slug">> = {
     description: "Taisyklingas dušo latakų montavimas formuojant nuolydį plytelėmis. Walk-in dušo sprendimai.",
     content: (
       <>
-        <p>„Walk-in“ tipo dušas be padėklo, su į grindis įleistu linijiniu trapu, suteikia vonios kambariui prabangos ir modernumo. Tačiau techniškai tai vienas sudėtingesnių mazgų vonioje.</p>
+        <p>„Walk-in" tipo dušas be padėklo, su į grindis įleistu linijiniu trapu, suteikia vonios kambariui prabangos ir modernumo. Tačiau techniškai tai vienas sudėtingesnių mazgų vonioje.</p>
         <h2>Dušo trapo įrengimo niuansai</h2>
         <p>Svarbiausia – užtikrinti tinkamą vandens nutekėjimą ir absoliutų sandarumą:</p>
         <ul>
-          <li><strong>Aukščio planavimas:</strong> Trapo sumontavimui reikia apie 7-10 cm gylio grindyse. Senos statybos butuose tai dažnai reiškia senų grindų ardymą ar net kanalizacijos stovo pertvarkymą.</li>
-          <li><strong>Nuolydžio formavimas:</strong> Betonuojant grindis suformuojamas reikiamas nuolydis (apie 1-2 cm į metrą) link trapo.</li>
+          <li><strong>Aukščio planavimas:</strong> Trapo sumontavimui reikia apie 7–10 cm gylio grindyse. Senos statybos butuose tai dažnai reiškia senų grindų ardymą ar net kanalizacijos stovo pertvarkymą.</li>
+          <li><strong>Nuolydžio formavimas:</strong> Betonuojant grindis suformuojamas reikiamas nuolydis (apie 1–2 cm į metrą) link trapo.</li>
           <li><strong>Sandarumas:</strong> Trapo flanšas itin atidžiai padengiamas hidroizoliacija naudojant sandarinimo manžetus.</li>
           <li><strong>Plytelių pjovimas:</strong> Plytelės turi būti meistriškai supjaustytos pagal suformuotus nuolydžius (vokų sistema, jei trapas ne per visą plotį).</li>
         </ul>
       </>
-    )
+    ),
   },
   "grindu-betonavimas-klaipeda": {
     title: "Grindų betonavimas vonioje",
@@ -242,6 +263,6 @@ export const seoPagesData: Record<string, Omit<SeoPageProps, "slug">> = {
         </ul>
         <p>Naudoju greitai džiūstančius, stiprius išlyginamuosius mišinius, todėl nereikia laukti savaičių, kol bus galima tęsti darbus.</p>
       </>
-    )
-  }
+    ),
+  },
 };

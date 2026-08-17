@@ -9,10 +9,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const [location] = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => setIsScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -21,118 +19,195 @@ export function Layout({ children }: { children: React.ReactNode }) {
     setIsMobileMenuOpen(false);
   }, [location]);
 
+  const navLinks = [
+    { href: "/", label: "Pradžia", active: location === "/" },
+    { href: "/darbai", label: "Darbai", active: location.startsWith("/darbai") },
+    { href: "/faq", label: "FAQ", active: location === "/faq" },
+  ];
+
   return (
-    <div className="min-h-[100dvh] flex flex-col font-sans">
+    <div className="min-h-[100dvh] flex flex-col font-sans bg-background">
+      {/* ── HEADER ── */}
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          isScrolled ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm py-4" : "bg-transparent py-6"
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+          isScrolled
+            ? "bg-[#0b0b0b]/95 backdrop-blur-md border-b border-white/5 py-3"
+            : "bg-transparent py-5"
         )}
       >
-        <div className="container mx-auto px-6 flex items-center justify-between">
-          <Link href="/" className="text-xl md:text-2xl font-serif font-medium tracking-tight">
-            Voniosr<span className="text-primary">.</span>lt
+        <div className="container mx-auto px-6 flex items-center justify-between gap-8">
+          {/* Logo */}
+          <Link href="/" className="flex items-baseline gap-3 group shrink-0">
+            <span className="text-xl md:text-2xl font-serif font-semibold text-foreground tracking-tight leading-none">
+              Build<span className="text-primary">IQ</span>
+            </span>
+            <span className="hidden sm:flex flex-col leading-none text-muted-foreground text-[9px] uppercase tracking-[0.2em] font-sans font-medium">
+              <span>Vonios remontas</span>
+              <span>Klaipėdoje</span>
+            </span>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
-            <Link href="/" className={cn("text-sm font-medium hover:text-primary transition-colors", location === "/" && "text-primary")}>
-              Pradžia
-            </Link>
-            <Link href="/darbai" className={cn("text-sm font-medium hover:text-primary transition-colors", location.startsWith("/darbai") && "text-primary")}>
-              Darbai
-            </Link>
-            <Link href="/faq" className={cn("text-sm font-medium hover:text-primary transition-colors", location === "/faq" && "text-primary")}>
-              FAQ
-            </Link>
-            <a href="#susisiekti" className="text-sm font-medium flex items-center gap-2 group">
-              <Phone className="w-4 h-4 text-primary group-hover:rotate-12 transition-transform" />
-              +370 674 96909
+          <nav className="hidden md:flex items-center gap-1">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "relative px-4 py-2 text-sm font-medium transition-colors",
+                  link.active ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                )}
+              >
+                {link.label}
+                {link.active && (
+                  <span className="absolute bottom-0 left-4 right-4 h-px bg-primary" />
+                )}
+              </Link>
+            ))}
+            <a
+              href="/#susisiekti"
+              className="ml-4 px-5 py-2 text-sm font-medium border border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-200"
+            >
+              Gauti pasiūlymą
             </a>
           </nav>
 
-          <button 
-            className="md:hidden p-2 -mr-2"
+          {/* Phone */}
+          <a
+            href="tel:+37067496909"
+            className="hidden lg:flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors shrink-0"
+          >
+            <Phone className="w-3.5 h-3.5 text-primary" strokeWidth={1.5} />
+            +370 674 96909
+          </a>
+
+          {/* Mobile toggle */}
+          <button
+            className="md:hidden p-2 -mr-2 text-muted-foreground hover:text-foreground transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Meniu"
           >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile menu */}
         {isMobileMenuOpen && (
-          <div className="absolute top-full left-0 right-0 bg-background border-b border-border p-6 flex flex-col gap-6 md:hidden shadow-lg animate-in fade-in slide-in-from-top-4">
-            <Link href="/" className="text-lg font-serif">Pradžia</Link>
-            <Link href="/darbai" className="text-lg font-serif">Darbai</Link>
-            <Link href="/faq" className="text-lg font-serif">D.U.K.</Link>
-            <a href="tel:+37067496909" className="text-lg font-serif flex items-center gap-3 text-primary">
-              <Phone className="w-5 h-5" />
+          <div className="absolute top-full left-0 right-0 bg-[#0f0f0f] border-b border-white/5 px-6 py-8 flex flex-col gap-6 md:hidden shadow-2xl animate-in fade-in slide-in-from-top-2 duration-200">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "text-base font-serif transition-colors",
+                  link.active ? "text-primary" : "text-foreground/80 hover:text-foreground"
+                )}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <a href="tel:+37067496909" className="flex items-center gap-3 text-base font-medium text-primary">
+              <Phone className="w-4 h-4" strokeWidth={1.5} />
               +370 674 96909
             </a>
           </div>
         )}
       </header>
 
-      <main className="flex-1">
-        {children}
-      </main>
+      {/* ── MAIN ── */}
+      <main className="flex-1">{children}</main>
 
-      <footer className="bg-foreground text-background py-16 md:py-24">
+      {/* ── FOOTER ── */}
+      <footer className="bg-[#0a0a0a] border-t border-white/5 pt-16 pb-8">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+            {/* Brand */}
             <div>
-              <div className="text-2xl font-serif font-medium mb-6">
-                Voniosr<span className="text-primary">.</span>lt
+              <div className="flex items-baseline gap-3 mb-5">
+                <span className="text-2xl font-serif font-semibold text-foreground">
+                  Build<span className="text-primary">IQ</span>
+                </span>
+                <span className="flex flex-col leading-none text-muted-foreground text-[9px] uppercase tracking-[0.2em] font-sans">
+                  <span>Vonios remontas</span>
+                  <span>Klaipėdoje</span>
+                </span>
               </div>
-              <p className="text-background/70 mb-6 max-w-sm">
-                Aukščiausios kokybės vonios kambario įrengimas ir remontas Klaipėdoje. Viskas iš vienų rankų.
+              <p className="text-muted-foreground text-sm mb-6 max-w-xs leading-relaxed">
+                Aukščiausios kokybės vonios kambario įrengimas ir remontas. Visi darbai iš vienų rankų.
               </p>
-              <a href="tel:+37067496909" className="text-2xl font-serif hover:text-primary transition-colors">
+              <a
+                href="tel:+37067496909"
+                className="text-xl font-serif text-foreground hover:text-primary transition-colors"
+              >
                 +370 674 96909
               </a>
             </div>
-            
+
+            {/* Navigation */}
             <div>
-              <h4 className="font-serif text-lg mb-6">Nuorodos</h4>
-              <ul className="space-y-4 text-background/70">
-                <li><Link href="/" className="hover:text-background transition-colors">Pradžia</Link></li>
-                <li><Link href="/darbai" className="hover:text-background transition-colors">Darbai</Link></li>
-                <li><Link href="/faq" className="hover:text-background transition-colors">Klausimai-Atsakymai</Link></li>
+              <h4 className="text-xs uppercase tracking-[0.15em] text-muted-foreground font-sans mb-6">Navigacija</h4>
+              <ul className="space-y-3">
+                {[
+                  { href: "/", label: "Pradžia" },
+                  { href: "/darbai", label: "Atlikti darbai" },
+                  { href: "/faq", label: "Klausimai & Atsakymai" },
+                  { href: "/#susisiekti", label: "Gauti pasiūlymą" },
+                ].map((l) => (
+                  <li key={l.href}>
+                    <Link href={l.href} className="text-muted-foreground hover:text-foreground transition-colors text-sm">
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
 
+            {/* SEO links */}
             <div>
-              <h4 className="font-serif text-lg mb-6">Paslaugos & Informacija</h4>
-              <ul className="space-y-4 text-background/70 text-sm">
-                <li><Link href="/vonios-remontas-klaipeda" className="hover:text-background transition-colors">Vonios remontas Klaipėdoje</Link></li>
-                <li><Link href="/plyteliu-klijavimas-klaipeda" className="hover:text-background transition-colors">Plytelių klijavimas</Link></li>
-                <li><Link href="/santechnikos-darbai-klaipeda" className="hover:text-background transition-colors">Santechnikos darbai</Link></li>
-                <li><Link href="/didelio-formato-plyteliu-klijavimas" className="hover:text-background transition-colors">Didelio formato plytelės</Link></li>
-                <li><Link href="/vonios-griovimo-darbai" className="hover:text-background transition-colors">Griovimo darbai</Link></li>
-                <li><Link href="/vonios-hidroizoliacija" className="hover:text-background transition-colors">Hidroizoliacija</Link></li>
-                <li><Link href="/potinkinio-wc-montavimas" className="hover:text-background transition-colors">Potinkinis WC</Link></li>
-                <li><Link href="/duso-trapo-montavimas" className="hover:text-background transition-colors">Dušo trapas</Link></li>
-                <li><Link href="/grindu-betonavimas-klaipeda" className="hover:text-background transition-colors">Grindų betonavimas</Link></li>
-                <li><Link href="/vonios-remonto-kaina" className="hover:text-background transition-colors">Vonios remonto kaina</Link></li>
+              <h4 className="text-xs uppercase tracking-[0.15em] text-muted-foreground font-sans mb-6">Paslaugos</h4>
+              <ul className="space-y-3 text-sm">
+                {[
+                  { href: "/vonios-remontas-klaipeda", label: "Vonios remontas Klaipėdoje" },
+                  { href: "/plyteliu-klijavimas-klaipeda", label: "Plytelių klijavimas" },
+                  { href: "/santechnikos-darbai-klaipeda", label: "Santechnikos darbai" },
+                  { href: "/vonios-remonto-kaina", label: "Vonios remonto kaina" },
+                  { href: "/didelio-formato-plyteliu-klijavimas", label: "Didelio formato plytelės" },
+                  { href: "/vonios-hidroizoliacija", label: "Hidroizoliacija" },
+                  { href: "/potinkinio-wc-montavimas", label: "Potinkinis WC" },
+                  { href: "/duso-trapo-montavimas", label: "Dušo trapas" },
+                  { href: "/grindu-betonavimas-klaipeda", label: "Grindų betonavimas" },
+                ].map((l) => (
+                  <li key={l.href}>
+                    <Link href={l.href} className="text-muted-foreground hover:text-foreground transition-colors">
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
 
-          <div className="border-t border-background/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-background/50">
-            <p>© {new Date().getFullYear()} Vonios remontas Klaipėdoje. Visos teisės saugomos.</p>
-            <p>Dirbame Klaipėdoje, Palangoje, Gargžduose, Kretingoje.</p>
+          <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-muted-foreground/60">
+            <p>© {new Date().getFullYear()} BuildIQ. Vonios remontas Klaipėdoje.</p>
+            <p>Klaipėda · Palanga · Gargždai · Kretinga</p>
           </div>
         </div>
       </footer>
 
-      {/* Mobile Sticky CTA */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 bg-background border-t border-border p-4 flex gap-4 z-40 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
-        <a href="tel:+37067496909" className="flex-1 flex items-center justify-center gap-2 h-12 rounded-none border border-foreground text-foreground font-medium text-sm">
-          <Phone className="w-4 h-4" />
+      {/* ── MOBILE STICKY CTA ── */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 bg-[#0f0f0f]/95 backdrop-blur-md border-t border-white/5 p-3 flex gap-3 z-40">
+        <a
+          href="tel:+37067496909"
+          className="flex-1 flex items-center justify-center gap-2 h-12 border border-white/10 text-foreground font-medium text-sm hover:border-primary/40 transition-colors"
+        >
+          <Phone className="w-4 h-4 text-primary" strokeWidth={1.5} />
           Skambinti
         </a>
-        <a href="#susisiekti" className="flex-1 flex items-center justify-center h-12 rounded-none bg-foreground text-background font-medium text-sm">
+        <a
+          href="/#susisiekti"
+          className="flex-1 flex items-center justify-center h-12 bg-primary text-primary-foreground font-medium text-sm hover:bg-primary/90 transition-colors"
+        >
           Gauti pasiūlymą
         </a>
       </div>

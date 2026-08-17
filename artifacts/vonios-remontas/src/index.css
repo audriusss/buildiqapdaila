@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
 @import 'tailwindcss';
 @import 'tw-animate-css';
 @plugin "@tailwindcss/typography";
@@ -67,81 +67,75 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-/* LIGHT MODE */
+/* DARK PREMIUM — default palette */
 :root {
-  --button-outline: rgba(0, 0, 0, 0.1);
-  --badge-outline: rgba(0, 0, 0, 0.05);
+  --button-outline: rgba(255, 255, 255, 0.08);
+  --badge-outline: rgba(255, 255, 255, 0.05);
+  --opaque-button-border-intensity: 9;
+  --elevate-1: rgba(255, 255, 255, 0.03);
+  --elevate-2: rgba(255, 255, 255, 0.07);
 
-  --opaque-button-border-intensity: -8;
+  /* Background layers: #0B0B0B → #111 → #151515 → #181818 */
+  --background: 0 0% 4%;        /* #0A0A0A ≈ #0B0B0B */
+  --foreground: 36 15% 93%;     /* #F1EEE8 warm off-white */
 
-  --elevate-1: rgba(0, 0, 0, 0.03);
-  --elevate-2: rgba(0, 0, 0, 0.08);
+  --border: 0 0% 12%;           /* #1E1E1E */
+  --input: 0 0% 11%;
+  --ring: 33 40% 51%;           /* bronze */
 
-  /* Quiet Luxury Palette:
-     Background: Sand/Stone #F4F2EE -> 36 21% 95%
-     Foreground: Graphite #2A2A2A -> 0 0% 16%
-     Primary (Bronze/Brass): #A67C52 -> 30 34% 49%
-  */
-  --background: 36 21% 95%;
-  --foreground: 0 0% 16%;
-  
-  --border: 36 10% 88%;
-  --input: 36 10% 88%;
-  --ring: 30 34% 49%;
+  --card: 0 0% 9%;              /* #171717 */
+  --card-foreground: 36 15% 93%;
+  --card-border: 0 0% 13%;      /* #212121 */
 
-  --card: 36 21% 95%;
-  --card-foreground: 0 0% 16%;
-  --card-border: 36 10% 88%;
+  --sidebar: 0 0% 7%;
+  --sidebar-foreground: 36 15% 93%;
+  --sidebar-border: 0 0% 12%;
+  --sidebar-primary: 33 40% 51%;
+  --sidebar-primary-foreground: 0 0% 4%;
+  --sidebar-accent: 0 0% 11%;
+  --sidebar-accent-foreground: 36 15% 93%;
+  --sidebar-ring: 33 40% 51%;
 
-  --sidebar: 36 21% 95%;
-  --sidebar-foreground: 0 0% 16%;
-  --sidebar-border: 36 10% 88%;
-  --sidebar-primary: 30 34% 49%;
-  --sidebar-primary-foreground: 36 21% 95%;
-  --sidebar-accent: 36 15% 90%;
-  --sidebar-accent-foreground: 0 0% 16%;
-  --sidebar-ring: 30 34% 49%;
+  --popover: 0 0% 9%;
+  --popover-foreground: 36 15% 93%;
+  --popover-border: 0 0% 13%;
 
-  --popover: 36 21% 95%;
-  --popover-foreground: 0 0% 16%;
-  --popover-border: 36 10% 88%;
+  /* Bronze / champagne accent: #B78A52 */
+  --primary: 33 40% 51%;
+  --primary-foreground: 0 0% 4%;
 
-  --primary: 30 34% 49%;
-  --primary-foreground: 36 21% 95%;
+  --secondary: 0 0% 9%;
+  --secondary-foreground: 36 15% 93%;
 
-  --secondary: 36 15% 90%;
-  --secondary-foreground: 0 0% 16%;
+  --muted: 0 0% 9%;
+  --muted-foreground: 36 5% 63%; /* #A9A49C warm grey */
 
-  --muted: 36 10% 92%;
-  --muted-foreground: 0 0% 45%;
+  --accent: 0 0% 11%;
+  --accent-foreground: 36 15% 93%;
 
-  --accent: 36 15% 90%;
-  --accent-foreground: 0 0% 16%;
+  --destructive: 0 62% 40%;
+  --destructive-foreground: 36 15% 93%;
 
-  --destructive: 0 84% 60%;
-  --destructive-foreground: 36 21% 95%;
-
-  --chart-1: 30 34% 49%;
-  --chart-2: 0 0% 45%;
-  --chart-3: 36 10% 80%;
-  --chart-4: 0 0% 25%;
-  --chart-5: 36 21% 85%;
+  --chart-1: 33 40% 51%;
+  --chart-2: 36 5% 63%;
+  --chart-3: 0 0% 25%;
+  --chart-4: 0 0% 18%;
+  --chart-5: 33 30% 35%;
 
   --app-font-sans: 'Inter', sans-serif;
   --app-font-serif: 'Playfair Display', serif;
   --app-font-mono: monospace;
-  
-  --radius: 0rem; 
-  /* Sharp edges for architectural feel */
-  
-  --shadow-2xs: 0px 2px 0px 0px rgba(0,0,0,0.02);
-  --shadow-xs: 0px 2px 0px 0px rgba(0,0,0,0.04);
-  --shadow-sm: 0px 2px 0px 0px rgba(0,0,0,0.02), 0px 1px 2px -1px rgba(0,0,0,0.04);
-  --shadow: 0px 2px 0px 0px rgba(0,0,0,0.02), 0px 1px 2px -1px rgba(0,0,0,0.04);
-  --shadow-md: 0px 2px 0px 0px rgba(0,0,0,0.02), 0px 4px 6px -1px rgba(0,0,0,0.04);
-  --shadow-lg: 0px 2px 0px 0px rgba(0,0,0,0.02), 0px 10px 15px -3px rgba(0,0,0,0.04);
-  --shadow-xl: 0px 2px 0px 0px rgba(0,0,0,0.02), 0px 20px 25px -5px rgba(0,0,0,0.04);
-  --shadow-2xl: 0px 2px 0px 0px rgba(0,0,0,0.02);
+
+  --radius: 0rem; /* Sharp architectural edges */
+
+  --shadow-2xs: 0px 1px 0px 0px rgba(0,0,0,0.3);
+  --shadow-xs:  0px 2px 4px 0px rgba(0,0,0,0.4);
+  --shadow-sm:  0px 2px 4px 0px rgba(0,0,0,0.3), 0px 1px 2px -1px rgba(0,0,0,0.5);
+  --shadow:     0px 2px 4px 0px rgba(0,0,0,0.3), 0px 2px 6px -1px rgba(0,0,0,0.5);
+  --shadow-md:  0px 4px 8px 0px rgba(0,0,0,0.4), 0px 4px 10px -1px rgba(0,0,0,0.5);
+  --shadow-lg:  0px 4px 8px 0px rgba(0,0,0,0.4), 0px 10px 20px -3px rgba(0,0,0,0.5);
+  --shadow-xl:  0px 4px 8px 0px rgba(0,0,0,0.4), 0px 20px 30px -5px rgba(0,0,0,0.6);
+  --shadow-2xl: 0px 25px 50px -12px rgba(0,0,0,0.7);
   --tracking-normal: 0em;
   --spacing: 0.25rem;
 
@@ -154,45 +148,31 @@
   --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
 }
 
+/* Keep dark class for compatibility */
 .dark {
-  --button-outline: rgba(255, 255, 255, 0.1);
+  --button-outline: rgba(255, 255, 255, 0.08);
   --badge-outline: rgba(255, 255, 255, 0.05);
-
   --opaque-button-border-intensity: 9;
-
-  --elevate-1: rgba(255, 255, 255, 0.04);
-  --elevate-2: rgba(255, 255, 255, 0.09);
-
-  /* Dark mode is disabled by default for this architectural site, but keeping vars just in case */
-  --background: 0 0% 12%;
-  --foreground: 36 21% 95%;
-  --border: 0 0% 20%;
-  --input: 0 0% 20%;
-  --ring: 30 34% 49%;
-  --card: 0 0% 12%;
-  --card-foreground: 36 21% 95%;
-  --card-border: 0 0% 20%;
-  --sidebar: 0 0% 12%;
-  --sidebar-foreground: 36 21% 95%;
-  --sidebar-border: 0 0% 20%;
-  --sidebar-primary: 30 34% 49%;
-  --sidebar-primary-foreground: 0 0% 12%;
-  --sidebar-accent: 0 0% 18%;
-  --sidebar-accent-foreground: 36 21% 95%;
-  --sidebar-ring: 30 34% 49%;
-  --popover: 0 0% 12%;
-  --popover-foreground: 36 21% 95%;
-  --popover-border: 0 0% 20%;
-  --primary: 30 34% 49%;
-  --primary-foreground: 0 0% 12%;
-  --secondary: 0 0% 18%;
-  --secondary-foreground: 36 21% 95%;
-  --muted: 0 0% 18%;
-  --muted-foreground: 0 0% 65%;
-  --accent: 0 0% 18%;
-  --accent-foreground: 36 21% 95%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 36 21% 95%;
+  --elevate-1: rgba(255, 255, 255, 0.03);
+  --elevate-2: rgba(255, 255, 255, 0.07);
+  --background: 0 0% 4%;
+  --foreground: 36 15% 93%;
+  --border: 0 0% 12%;
+  --input: 0 0% 11%;
+  --ring: 33 40% 51%;
+  --card: 0 0% 9%;
+  --card-foreground: 36 15% 93%;
+  --card-border: 0 0% 13%;
+  --primary: 33 40% 51%;
+  --primary-foreground: 0 0% 4%;
+  --secondary: 0 0% 9%;
+  --secondary-foreground: 36 15% 93%;
+  --muted: 0 0% 9%;
+  --muted-foreground: 36 5% 63%;
+  --accent: 0 0% 11%;
+  --accent-foreground: 36 15% 93%;
+  --destructive: 0 62% 40%;
+  --destructive-foreground: 36 15% 93%;
 }
 
 @layer base {
@@ -223,7 +203,6 @@
   .active-elevate:not(.no-default-active-elevate),
   .hover-elevate-2:not(.no-default-hover-elevate),
   .active-elevate-2:not(.no-default-active-elevate) { position: relative; z-index: 0; }
-  
   .hover-elevate:not(.no-default-hover-elevate)::after,
   .active-elevate:not(.no-default-active-elevate)::after,
   .hover-elevate-2:not(.no-default-hover-elevate)::after,

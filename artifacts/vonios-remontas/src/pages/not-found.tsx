@@ -1,4 +1,3 @@
-import { useRouteError } from "wouter";
 import { Link } from "wouter";
 import { Layout } from "@/components/layout";
 
