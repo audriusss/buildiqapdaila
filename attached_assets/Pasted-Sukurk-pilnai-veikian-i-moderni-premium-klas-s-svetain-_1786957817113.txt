@@ -1,0 +1,647 @@
+Sukurk pilnai veikiančią, modernią, premium klasės svetainę vonios kambarių remontui Klaipėdoje ir aplinkiniuose rajonuose.
+
+Pagrindinis tikslas:
+
+* generuoti klientų užklausas;
+* labai stiprus local SEO;
+* premium „wow“ dizainas;
+* realių darbų galerija;
+* paprasta užklausos forma;
+* užklausos siunčiamos tiesiai į Telegram;
+* svetainė neturi būti perkrauta nereikalingu adminu ar CRM.
+
+## Technologijos
+
+Naudok:
+
+* React
+* Vite
+* TypeScript
+* Node.js / Express backend
+* modernų responsive CSS sprendimą
+* SEO-friendly routing
+* Telegram Bot API užklausoms
+* lengvą, greitą architektūrą
+* jokio nereikalingo sudėtingumo
+
+Jeigu reikalinga duomenų bazė vien tik kontaktų formai ar galerijai – pirmoje versijoje jos nenaudok.
+
+Galerijos duomenis galima laikyti struktūrizuotame JSON/TypeScript faile.
+
+Telegram bot token ir chat ID turi būti skaitomi iš environment variables:
+
+TELEGRAM_BOT_TOKEN
+TELEGRAM_CHAT_ID
+
+Jokių secret reikšmių source kode.
+
+---
+
+# DIZAINO KRYPTIS
+
+Svetainė turi atrodyti ne kaip tipinis „statybininko puslapis“, o kaip 2026 metų premium interjero / architektūros studijos platforma, su ilgaamžiu, „future-proof“ dizainu, kuris išlieka modernus bent 8–10 metų.
+
+Vizualinė kryptis:
+
+* modernus, architektūrinis minimalizmas su „timeless luxury“ estetika;
+* natūralių medžiagų įkvėpta paletė (akmuo, smėlis, betonas, šiltas off-white), bet su šiuolaikiniu kontrastu;
+* subtilūs „stone / mineral / terrazzo“ tekstūrų akcentai, be triukšmingų raštų;
+* didelės, kino kokybės (cinematic) vonios erdvių nuotraukos su realia šviesa;
+* stipri, šiuolaikinė tipografija (editorial / architectural style);
+* aiški vizualinė hierarchija, paremta grid sistema;
+* daug „whitespace“ ir oro tarp elementų;
+* mikro-animacijos, kurios jaučiasi „premium“, ne žaismingos;
+* sklandūs, beveik nepastebimi perėjimai (no flashy effects);
+* minimalūs, bet labai gerai suprojektuoti CTA elementai;
+* jokio „template look“ – viskas turi atrodyti custom, kaip architektūros studijos darbas;
+* jokio perteklinio gradientų naudojimo, nebent labai subtilūs „light falloff“ efektai;
+* jokio „corporate blue“ ar standartinių SaaS spalvų;
+* spalvinė sistema turi būti neutrali, bet su aiškiais akcentais (pvz. šiltas bronzos / grafito kontrastas).
+
+Dizainas turi būti kuriamas kaip ilgalaikė sistema, o ne laikina svetainė – su komponentais, kurie gali evoliucionuoti, bet nepasensta vizualiai.
+
+Mobile versija yra tokia pat svarbi kaip desktop – su „mobile-first luxury“ principu, kur turinys išlieka premium net mažame ekrane.
+
+Core Web Vitals, greitis ir techninis lengvumas yra kritiniai – dizainas turi atrodyti aukštos klasės, bet būti lengvas kaip „performance-first“ produktas.
+
+# PAGRINDINĖ NAVIGACIJA
+
+Viršutinėje navigacijoje rodyti tik:
+
+Pradžia
+Darbai
+FAQ
+Gauti pasiūlymą
+
+SEO puslapiai gali egzistuoti atskirais URL, bet jų nereikia prikrauti į pagrindinį meniu.
+
+Sticky navigation desktop ir mobile.
+
+Mobile gali būti minimalistinis hamburger meniu.
+
+---
+
+# 1. PAGRINDINIS LANDING PAGE
+
+URL:
+
+/
+
+Pagrindinis SEO fokusas:
+
+vonios remontas Klaipėda
+vonios kambario remontas Klaipėda
+vonios įrengimas Klaipėda
+pilnas vonios remontas
+
+## Hero sekcija
+
+Naudoti didelę premium vonios nuotrauką arba fullscreen image composition.
+
+Pagrindinis H1:
+
+Vonios remontas Klaipėdoje
+
+Subheadline:
+
+Visi darbai iš vienų rankų — nuo griovimo iki paskutinės plytelės.
+
+Trumpa papildoma eilutė:
+
+Daugiau nei 10 metų patirties. Klaipėda ir aplinkiniai rajonai.
+
+CTA:
+
+Gauti pasiūlymą
+Peržiūrėti darbus
+
+Galima subtiliai parodyti:
+
+10+ metų patirtis
+Pilnas remontas
+Vienas meistras
+Nemokamas pirminis įvertinimas
+
+Nedaryti fake review skaičių ar išgalvotų statistikų.
+
+---
+
+# PASLAUGŲ SEKCIJA
+
+Antraštė:
+
+Visi vonios remonto darbai iš vienų rankų
+
+Pateikti vizualias paslaugų korteles arba minimalistinį sąrašą.
+
+Realios paslaugos:
+
+* senų plytelių ir dangų demontavimas;
+* griovimo darbai;
+* santechnikos demontavimas;
+* štrabų paruošimas;
+* štrabų užbetonavimas;
+* grindų betonavimas;
+* išlyginamojo sluoksnio įrengimas;
+* pagrindų paruošimas;
+* hidroizoliacija;
+* gipso kartono konstrukcijos;
+* potinkinių WC konstrukcijų apsiuvimas;
+* dėžių ir nišų formavimas;
+* plytelių klijavimas;
+* didelio formato plytelių klijavimas;
+* 120×60 cm ir panašių plytelių klijavimas;
+* fugavimas;
+* silikoninių siūlių įrengimas;
+* vandentiekio montavimas;
+* kanalizacijos montavimas;
+* vamzdynų keitimas;
+* potinkinio WC montavimas;
+* WC montavimas;
+* praustuvo montavimas;
+* dušo kabinos montavimas;
+* vonios montavimas;
+* dušo trapo montavimas;
+* gyvatuko montavimas ir pajungimas;
+* elektros instaliacija vonios patalpose;
+* rozečių montavimas;
+* apšvietimo montavimas;
+* lubų paruošimas;
+* glaistymas;
+* dažymas;
+* konsultacijos dėl medžiagų;
+* konsultacijos dėl techninių sprendimų.
+
+Nerašyti, kad tai didelė brigada ar įmonė.
+
+Pozicionavimas:
+
+Vienas meistras – visas vonios remontas.
+
+---
+
+# PRIEŠ / PO SEKCIJA
+
+Sukurti vizualiai stiprią sekciją su prieš ir po nuotraukomis.
+
+Jeigu įmanoma, naudoti before/after slider komponentą.
+
+Sekcijos antraštė:
+
+Rezultatas matomas geriau nei pažadai
+
+Kiekvienam projektui galima rodyti:
+
+* vietą;
+* plotą;
+* atliktus darbus;
+* trumpą paaiškinimą.
+
+---
+
+# GALERIJOS PREVIEW LANDINGE
+
+Landing puslapyje parodyti 4–6 geriausius projektus.
+
+Kortelės turi būti didelės, premium.
+
+CTA:
+
+Peržiūrėti visus darbus
+
+veda į:
+
+/darbai
+
+---
+
+# UŽKLAUSOS FORMA LANDING PAGE
+
+Tai vienas svarbiausių svetainės elementų.
+
+Antraštė:
+
+Papasakokite apie savo vonios remontą
+
+Subheadline:
+
+Trumpai aprašykite darbus. Jei turite nuotraukų – pridėkite, tačiau tai nėra privaloma.
+
+Formos laukai:
+
+Vardas
+Telefono numeris *
+Miestas
+Darbų aprašymas *
+Pageidaujamas darbų terminas
+Nuotraukų įkėlimas – optional
+
+Leisti įkelti kelias nuotraukas.
+
+Rekomenduojamas limitas:
+
+iki 5 nuotraukų
+JPEG / PNG / WEBP
+protingas failo dydžio limitas
+
+CTA:
+
+Gauti pasiūlymą
+
+Telefono numeris ir darbų aprašymas yra privalomi.
+
+---
+
+# TELEGRAM INTEGRACIJA
+
+Po formos pateikimo backend turi išsiųsti užklausą į Telegram.
+
+Telegram žinutė turi atrodyti maždaug taip:
+
+🔨 Nauja užklausa iš svetainės
+
+Klientas: Jonas
+Telefonas: +370...
+Miestas: Klaipėda
+
+Darbai:
+Reikia pilno 5 m² vonios remonto, senų plytelių griovimo, vamzdyno keitimo, potinkinio WC, dušo ir 120×60 plytelių.
+
+Pageidaujamas terminas:
+Rugsėjis
+
+Jeigu pridėtos nuotraukos, jos taip pat turi būti siunčiamos į Telegram.
+
+Jeigu nuotraukų nėra, forma turi veikti normaliai.
+
+Formoje turi būti:
+
+loading state
+success state
+error state
+
+Apsauga nuo spam:
+
+honeypot
+basic rate limiting
+server-side validation
+
+Nereikia CAPTCHA pirmoje versijoje, nebent ji tikrai būtina.
+
+---
+
+# 2. DARBŲ / GALERIJOS PUSLAPIS
+
+URL:
+
+/darbai
+
+SEO title:
+
+Vonios remonto darbai Klaipėdoje | Atliktų darbų galerija
+
+H1:
+
+Atlikti vonios remonto darbai
+
+Galerija turi būti suskirstyta į projektus, o ne tiesiog 50 paveikslėlių vienoje sienoje.
+
+Projektas turi turėti:
+
+* pavadinimą;
+* miestą;
+* vonios plotą;
+* trumpą aprašymą;
+* atliktų darbų sąrašą;
+* pagrindinę nuotrauką;
+* papildomų nuotraukų galeriją;
+* before/after, jei turima.
+
+Pavyzdinis projektas:
+
+6 m² vonios remontas Klaipėdoje
+
+Atlikta:
+
+* senos apdailos demontavimas;
+* naujas vandentiekis;
+* grindų paruošimas;
+* hidroizoliacija;
+* potinkinis WC;
+* dušo zona;
+* 120×60 plytelių klijavimas;
+* lubų dažymas;
+* galutinė santechnika.
+
+Kiekvienas projektas gali turėti savo SEO-friendly URL:
+
+/darbai/6m2-vonios-remontas-klaipeda
+
+Tokie projektai turi būti indeksuojami Google.
+
+Naudoti Breadcrumb schema.
+
+---
+
+# 3. FAQ PUSLAPIS
+
+URL:
+
+/faq
+
+H1:
+
+Dažniausi klausimai apie vonios remontą
+
+Sukurti realius klausimus:
+
+Kiek kainuoja vonios remontas Klaipėdoje?
+
+Kiek laiko trunka pilnas vonios remontas?
+
+Ar atliekate visus darbus nuo griovimo iki galutinio įrengimo?
+
+Ar atliekate santechnikos darbus?
+
+Ar atliekate elektros darbus vonioje?
+
+Ar klijuojate didelio formato plyteles?
+
+Ar galima atsiųsti vonios nuotraukas kainos įvertinimui?
+
+Ar atvykstate į Klaipėdos rajoną?
+
+Ar padedate pasirinkti medžiagas?
+
+Ar klientas gali pats nusipirkti medžiagas?
+
+Ar montuojate potinkinį WC?
+
+Ar įrengiate dušo trapus?
+
+Ar atliekate hidroizoliaciją?
+
+Ar remontuojate tik visą vonią, ar galima užsakyti atskirus darbus?
+
+Kaip nustatoma galutinė darbų kaina?
+
+Kiek anksčiau reikia rezervuoti remonto laiką?
+
+FAQ atsakymai turi būti konkretūs, natūralūs ir naudingi, ne keyword stuffing.
+
+Naudoti FAQPage structured data tik tada, jei tai atitinka dabartines Google structured data taisykles.
+
+---
+
+# SEO ARCHITEKTŪRA
+
+SEO turi būti viena iš svarbiausių projekto dalių.
+
+Svetainė turi būti techniškai paruošta stipriam local SEO.
+
+Sukurti individualius puslapius:
+
+/vonios-remontas-klaipeda
+
+/plyteliu-klijavimas-klaipeda
+
+/santechnikos-darbai-klaipeda
+
+/vonios-remonto-kaina
+
+/didelio-formato-plyteliu-klijavimas
+
+/vonios-griovimo-darbai
+
+/vonios-hidroizoliacija
+
+/potinkinio-wc-montavimas
+
+/duso-trapo-montavimas
+
+/grindu-betonavimas-klaipeda
+
+Kiekvienas puslapis turi turėti UNIKALŲ:
+
+title
+meta description
+canonical
+H1
+intro
+paslaugos paaiškinimą
+FAQ arba susijusius klausimus
+CTA
+internal links
+
+Nekopijuoti to paties teksto tarp puslapių.
+
+Nekurti keyword-stuffed tekstų.
+
+Tekstas turi būti pirmiausia naudingas žmogui.
+
+---
+
+# LOCAL SEO
+
+Pagrindinė vietovė:
+
+Klaipėda
+
+Taip pat natūraliai paminėti:
+
+Klaipėdos rajonas
+Gargždai
+Palanga
+Kretinga
+
+Bet NEGENERUOTI dešimčių miesto kopijų pirmoje versijoje.
+
+Pirmiausia stipriai optimizuoti Klaipėdą.
+
+---
+
+# TECHNINIS SEO
+
+Privaloma:
+
+* semantic HTML;
+* server-side arba prerendered SEO output, kad crawleriai matytų turinį be problemų;
+* unikalūs title;
+* meta descriptions;
+* canonical URLs;
+* robots.txt;
+* sitemap.xml;
+* image sitemap, jei prasminga;
+* Open Graph;
+* Twitter Cards;
+* structured data;
+* BreadcrumbList;
+* LocalBusiness arba tinkamiausia schema;
+* Service schema, kur tinkama;
+* alt tekstai;
+* descriptive image filenames;
+* lazy loading;
+* responsive images;
+* WebP/AVIF palaikymas;
+* greitas LCP;
+* minimizuotas CLS;
+* gera mobile performance;
+* 404 puslapis;
+* nėra indeksuojamų duplicate URL;
+* trailing slash politika turi būti nuosekli;
+* www/non-www canonical politika;
+* HTTPS-ready.
+
+Sitemap turi būti generuojamas iš realių puslapių.
+
+Nedėti neegzistuojančių URL.
+
+---
+
+# STRUKTŪRINIAI DUOMENYS
+
+Pridėti JSON-LD.
+
+Verslo informacija:
+
+Paslaugų tipas:
+Vonios remontas
+Plytelių klijavimas
+Santechnikos darbai
+Apdailos darbai
+
+Regionas:
+Klaipėda ir aplinkiniai rajonai
+
+Telefonas:
+
++37067496909
+
+NENAUDOTI išgalvoto adreso.
+
+Jeigu nėra fizinio klientų aptarnavimo biuro, schema turi tai korektiškai atspindėti.
+
+Nekurti fake reviews, rating ar aggregateRating.
+
+---
+
+# KONTAKTAI
+
+Telefono numeris visur clickable:
+
+tel:+37067496909
+
+Desktop ir mobile.
+
+Mobile versijoje galima turėti sticky bottom CTA:
+
+Skambinti
+Gauti pasiūlymą
+
+Nepersistengti su popupais.
+
+---
+
+# TURINIO TONAS
+
+Lietuvių kalba.
+
+Tekstas turi būti:
+
+* profesionalus;
+* tiesus;
+* paprastas;
+* be korporatyvinių klišių;
+* be dirbtinio AI tono;
+* be perdėtų pažadų;
+* be „esame rinkos lyderiai“;
+* be išgalvotų klientų atsiliepimų.
+
+Akcentuoti:
+
+* daugiau nei 10 metų patirties;
+* vienas meistras gali atlikti didžiąją dalį vonios remonto darbų;
+* aiškus darbų procesas;
+* kokybė;
+* tikri darbai;
+* galimybė atsiųsti nuotraukas;
+* pirminis įvertinimas;
+* Klaipėda ir aplinkiniai rajonai.
+
+---
+
+# FOOTER
+
+Footer minimalistinis.
+
+Rodyti:
+
+Vonios remontas Klaipėdoje
+
++370 67496909
+
+Nuorodos:
+
+Pradžia
+Darbai
+FAQ
+Gauti pasiūlymą
+
+Paslaugų SEO nuorodos gali būti mažesnėje footer sekcijoje.
+
+Copyright metai turi būti generuojami automatiškai.
+
+---
+
+# GOOGLE / ANALYTICS PARUOŠIMAS
+
+Paruošti vietas:
+
+Google Search Console verification
+GA4
+
+Nedėti išgalvotų ID.
+
+Naudoti environment/config reikšmes.
+
+---
+
+# SVARBIAUSIA
+
+Tai neturi būti tik gražus frontend maketas.
+
+Galutinis projektas turi:
+
+1. realiai veikti;
+2. turėti veikiančią užklausos formą;
+3. siųsti Telegram žinutes;
+4. palaikyti optional nuotraukas;
+5. turėti veikiančius route;
+6. turėti stiprią SEO architektūrą;
+7. turėti sitemap ir robots;
+8. turėti canonical;
+9. turėti structured data;
+10. būti responsive;
+11. būti greitas;
+12. neturėti TypeScript/build klaidų.
+
+Prieš baigiant:
+
+* paleisti build;
+* patikrinti TypeScript;
+* patikrinti visus route;
+* patikrinti formos validaciją;
+* patikrinti Telegram integracijos kodą;
+* patikrinti mobile layout;
+* patikrinti SEO metadata kiekviename svarbiame route;
+* patikrinti sitemap;
+* patikrinti robots.txt;
+* patikrinti, kad nėra placeholder lorem ipsum;
+* patikrinti, kad nėra fake testimonials;
+* patikrinti, kad nėra broken links.
+
+Pirmiausia sukurk stiprią veikiančią pirmą versiją, o ne daug nereikalingų funkcijų.
+
+Svarbiausia kombinacija:
+
+PREMIUM DIZAINAS + REALŪS DARBAI + STIPRUS SEO + PAPRASTA UŽKLAUSA Į TELEGRAM.
