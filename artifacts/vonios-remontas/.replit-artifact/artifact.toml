@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Vonios Remontas Klaipėdoje"
+description = "Premium bathroom renovation website for a craftsman in Klaipėda, Lithuania. Generates client inquiries via a Telegram-connected contact form, showcases real completed projects in a gallery, has FAQ and 10 SEO service pages, all with strong local SEO, structured data, sitemap, and robots.txt."
+version = "1.0.0"
+id = "artifacts/vonios-remontas"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20741
+
+[services.development]
+run = "pnpm --filter @workspace/vonios-remontas run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/vonios-remontas", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/vonios-remontas/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20741"
+BASE_PATH = "/"

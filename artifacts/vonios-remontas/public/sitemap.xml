@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://voniosr.lt/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://voniosr.lt/darbai</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://voniosr.lt/faq</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- SEO Pages -->
+  <url><loc>https://voniosr.lt/vonios-remontas-klaipeda</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://voniosr.lt/plyteliu-klijavimas-klaipeda</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://voniosr.lt/santechnikos-darbai-klaipeda</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://voniosr.lt/vonios-remonto-kaina</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://voniosr.lt/didelio-formato-plyteliu-klijavimas</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://voniosr.lt/vonios-griovimo-darbai</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://voniosr.lt/vonios-hidroizoliacija</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://voniosr.lt/potinkinio-wc-montavimas</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://voniosr.lt/duso-trapo-montavimas</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://voniosr.lt/grindu-betonavimas-klaipeda</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+</urlset>

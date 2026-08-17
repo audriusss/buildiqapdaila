@@ -1,45 +1,60 @@
-# [Project name]
+# Vonios Remontas Klaipėdoje
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+Premium bathroom renovation website for a craftsman in Klaipėda, Lithuania. Generates client inquiries via a Telegram-connected contact form, showcases completed projects, and is optimised for local SEO.
 
 ## Run & Operate
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
+- `pnpm --filter @workspace/vonios-remontas run dev` — frontend (Vite, port from PORT env)
+- `pnpm --filter @workspace/api-server run dev` — API server (Express, port from PORT env)
 - `pnpm run typecheck` — full typecheck across all packages
-- `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
+- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from OpenAPI spec
 
 ## Stack
 
 - pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+- Frontend: React + Vite, Tailwind CSS v4, framer-motion, react-helmet-async, wouter
+- API: Express 5 + multer (file uploads) + express-rate-limit
+- Gallery data: static TypeScript file at `artifacts/api-server/src/data/projects.ts`
+- No database — contact form sends to Telegram; gallery is static data
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- Frontend: `artifacts/vonios-remontas/src/`
+- API server: `artifacts/api-server/src/`
+- Gallery data: `artifacts/api-server/src/data/projects.ts`
+- Contact route (Telegram): `artifacts/api-server/src/routes/contact.ts`
+- Projects route: `artifacts/api-server/src/routes/projects.ts`
+- SEO static files: `artifacts/vonios-remontas/public/` (robots.txt, sitemap.xml)
+- Project images: `artifacts/vonios-remontas/public/assets/projects/`
+- OpenAPI spec: `lib/api-spec/openapi.yaml`
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- No database for v1 — gallery data is a static TS array; contact form is POST → Telegram only
+- Multer with memory storage — uploaded photos are forwarded directly to Telegram Bot API, never saved to disk
+- Rate limiting on `/api/contact` — 5 requests per 15 minutes per IP
+- Honeypot field (`website`) in contact form for basic spam protection
+- react-helmet-async for per-route SEO metadata (title, description, canonical, OG tags)
+- JSON-LD LocalBusiness schema injected in `index.html` head for Google structured data
 
-## Product
+## Secrets required
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+- `TELEGRAM_BOT_TOKEN` — Telegram bot token (from @BotFather)
+- `TELEGRAM_CHAT_ID` — Chat/user ID where messages are delivered
+
+Without these, the contact form returns 200 (graceful degradation) but nothing is sent to Telegram.
+
+## SEO pages
+
+10 service-specific SEO pages at dedicated URLs:
+`/vonios-remontas-klaipeda`, `/plyteliu-klijavimas-klaipeda`, `/santechnikos-darbai-klaipeda`,
+`/vonios-remonto-kaina`, `/didelio-formato-plyteliu-klijavimas`, `/vonios-griovimo-darbai`,
+`/vonios-hidroizoliacija`, `/potinkinio-wc-montavimas`, `/duso-trapo-montavimas`,
+`/grindu-betonavimas-klaipeda`
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
-
-## Gotchas
-
-_Populate as you build — sharp edges, "always run X before Y" rules._
-
-## Pointers
-
-- See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details
+- All content in Lithuanian
+- No fake reviews, ratings, or fabricated statistics
+- Phone +37067496909 clickable as `tel:` link everywhere
+- No database for v1 — keep it lightweight
