@@ -114,11 +114,11 @@ export default function Projects() {
 
           {/* ── Showcase projects ───────────────────────────────────── */}
           <div className="mb-16">
-            <p className="text-[10px] uppercase tracking-[0.25em] text-primary font-sans mb-4">Portfolio</p>
-            <h1 className="text-4xl md:text-6xl font-serif mb-4">Atlikti darbai</h1>
+            <p className="text-[10px] uppercase tracking-[0.25em] text-primary font-sans mb-4">ATLIKTI DARBAI</p>
+            <h1 className="text-4xl md:text-6xl font-serif mb-4">Vonios remonto darbai</h1>
             <p className="text-muted-foreground max-w-xl leading-relaxed">
-              Kiekvienas vonios kambarys — tai atskiras projektas, reikalaujantis kruopštumo ir tikslumo.
-              Čia rasite pavyzdžius to, ką galiu sukurti Jūsų namuose.
+              Vonios remontas nuo griovimo ir paruošimo iki plytelių klijavimo, santechnikos montavimo ir galutinės apdailos.
+              Žemiau – darbų pavyzdžiai ir realiai atliktų objektų nuotraukos.
             </p>
           </div>
 
