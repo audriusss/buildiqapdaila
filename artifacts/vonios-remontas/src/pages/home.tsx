@@ -12,19 +12,28 @@ import {
 } from "lucide-react";
 import { useListProjects } from "@workspace/api-client-react";
 
-const REELS = [
-  "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1381975463444032%2F&show_text=false&width=267&t=0",
-  "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1355644268870502%2F&show_text=false&width=235&t=0",
-  "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F3247807962034145%2F&show_text=false&width=235&t=0",
-  "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1296203845861618%2F&show_text=false&width=235&t=0",
+const VIDEOS = [
+  "/videos/vonios-remontas-1.mp4",
+  "/videos/vonios-remontas-2.mp4",
+  "/videos/vonios-remontas-3.mp4",
 ];
 
-function ReelCarousel() {
+function VideoCarousel() {
   const [active, setActive] = useState(0);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([null, null, null]);
   const touchStartX = useRef<number | null>(null);
 
-  const prev = () => setActive((i) => (i - 1 + REELS.length) % REELS.length);
-  const next = () => setActive((i) => (i + 1) % REELS.length);
+  const goTo = (index: number) => {
+    // Pause the currently active video before switching
+    const current = videoRefs.current[active];
+    if (current) {
+      current.pause();
+    }
+    setActive(index);
+  };
+
+  const prev = () => goTo((active - 1 + VIDEOS.length) % VIDEOS.length);
+  const next = () => goTo((active + 1) % VIDEOS.length);
 
   const onTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
@@ -52,18 +61,19 @@ function ReelCarousel() {
           boxShadow: "0 8px 48px rgba(0,0,0,0.65), 0 0 0 1px rgba(180,130,70,0.06)",
         }}
       >
-        <iframe
-          key={active}
-          src={REELS[active]}
-          width={267}
-          height={476}
-          style={{ border: "none", display: "block" }}
-          scrolling="no"
-          frameBorder="0"
-          allowFullScreen
-          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-          title={`Vonios remontas Klaipėdoje – reel ${active + 1}`}
-        />
+        {VIDEOS.map((src, i) => (
+          <video
+            key={src}
+            ref={(el) => { videoRefs.current[i] = el; }}
+            src={src}
+            controls
+            playsInline
+            preload={i === 0 ? "metadata" : "none"}
+            className="absolute inset-0 w-full h-full object-cover bg-black transition-opacity duration-300"
+            style={{ opacity: i === active ? 1 : 0, pointerEvents: i === active ? "auto" : "none" }}
+            aria-label={`Vonios remontas Klaipėdoje – video ${i + 1}`}
+          />
+        ))}
       </div>
 
       {/* Controls: prev · dots · next */}
@@ -77,10 +87,10 @@ function ReelCarousel() {
         </button>
 
         <div className="flex gap-2">
-          {REELS.map((_, i) => (
+          {VIDEOS.map((_, i) => (
             <button
               key={i}
-              onClick={() => setActive(i)}
+              onClick={() => goTo(i)}
               aria-label={`Video ${i + 1}`}
               className={`w-1.5 h-1.5 rounded-full transition-colors ${
                 i === active ? "bg-primary" : "bg-white/20 hover:bg-white/40"
@@ -224,7 +234,7 @@ export default function Home() {
               className="mt-12 lg:mt-0 flex justify-center lg:justify-end lg:flex-shrink-0"
               variants={fadeUp} initial="hidden" animate="show" custom={5}
             >
-              <ReelCarousel />
+              <VideoCarousel />
             </motion.div>
 
           </div>
