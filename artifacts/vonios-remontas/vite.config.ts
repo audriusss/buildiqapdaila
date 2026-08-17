@@ -17,6 +17,10 @@ if (rawPort && (Number.isNaN(port) || port <= 0)) {
 // domain root). Replit sets it via the artifact routing system.
 const basePath = process.env.BASE_PATH ?? '/';
 
+// VITE_BUILD_TARGET=ssr → build the server-side entry to dist/server/.
+// Otherwise build the client bundle to dist/public/ (default).
+const isSSRBuild = process.env.VITE_BUILD_TARGET === 'ssr';
+
 export default defineConfig({
   base: basePath,
   plugins: [
@@ -52,9 +56,19 @@ export default defineConfig({
   },
   root: path.resolve(import.meta.dirname),
   build: {
-    outDir: path.resolve(import.meta.dirname, 'dist/public'),
-    emptyOutDir: true,
+    outDir: isSSRBuild
+      ? path.resolve(import.meta.dirname, 'dist/server')
+      : path.resolve(import.meta.dirname, 'dist/public'),
+    // For SSR builds, don't wipe the client output.
+    emptyOutDir: !isSSRBuild,
   },
+  // SSR-specific: bundle workspace packages so the Node.js prerender script
+  // doesn't need to resolve them at runtime.
+  ...(isSSRBuild && {
+    ssr: {
+      noExternal: ['@workspace/api-client-react', 'react-helmet-async'],
+    },
+  }),
   server: {
     port,
     strictPort: true,
