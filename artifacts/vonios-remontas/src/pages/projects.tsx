@@ -109,6 +109,29 @@ export default function Projects() {
         path="/darbai"
       />
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ImageGallery",
+            name: "Realūs atlikti vonios remonto darbai",
+            description:
+              "Realiai atliktų vonios remonto, plytelių klijavimo, dušo zonų, potinkinių WC ir santechnikos darbų nuotraukos.",
+            url: "https://buildiq.lt/darbai",
+            image: galleryImages.map((img) => ({
+              "@type": "ImageObject",
+              contentUrl: `https://buildiq.lt${img.url}`,
+              url: `https://buildiq.lt${img.url}`,
+              name: img.title,
+              caption: img.description,
+              description: img.alt,
+              representativeOfPage: false,
+            })),
+          }),
+        }}
+      />
+
       <div className="pt-32 pb-24 bg-background">
         <div className="container mx-auto px-6">
 

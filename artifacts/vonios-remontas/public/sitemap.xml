@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://buildiq.lt/</loc>
     <changefreq>weekly</changefreq>
@@ -9,6 +10,71 @@
     <loc>https://buildiq.lt/darbai</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://buildiq.lt/assets/projects/betono-efekto-duso-zona-wc.webp</image:loc>
+      <image:title>Betono efekto plytelių apdaila</image:title>
+      <image:caption>Pilkos betono imitacijos didelio formato plytelės sienoms ir grindims. Stiklinė dušo pertvara ir chromuotas rankšluosčių džiovintuvas.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://buildiq.lt/assets/projects/tamsi-vonia-apvalus-veidrodis.jpg</image:loc>
+      <image:title>Tamsi apdaila su apvaliais LED veidrodžiais</image:title>
+      <image:caption>Tamsios pilkos plytelės, du apvalūs LED veidrodžiai ir stiklinės dušo durys.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://buildiq.lt/assets/projects/marmuro-plyteles-duso-zona-01.webp</image:loc>
+      <image:title>Marmuro efekto plytelės su juodais rėmais</image:title>
+      <image:caption>Balto marmuro imitacijos didelio formato plytelės, juodų metalinių rėmų dušo pertvara ir medienos imitacijos grindys.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://buildiq.lt/assets/projects/marmuro-plyteles-duso-zona-02.webp</image:loc>
+      <image:title>Dušo zona su juoda dušo sistema</image:title>
+      <image:caption>Marmuro imitacijos plytelėmis išklota dušo zona su juoda dušo sistema ir medinės imitacijos vonios baldais.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://buildiq.lt/assets/projects/duso-trapas-beige-plyteles.webp</image:loc>
+      <image:title>Dušo zona su linijiniu trapu</image:title>
+      <image:caption>Šviesiomis smėlio spalvos plytelėmis išklota dušo zona su linijiniu trapu ir stikline pertvara.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://buildiq.lt/assets/projects/vonios-apdaila-veidrodis-radiatorius.webp</image:loc>
+      <image:title>Šildomasis rankšluosčių džiovintuvas</image:title>
+      <image:caption>Pilkos betono imitacijos plytelės, baltas šildomasis rankšluosčių džiovintuvas ir apšviestas veidrodis.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://buildiq.lt/assets/projects/pilkas-vonios-remontas-kompaktiskas.webp</image:loc>
+      <image:title>Kompaktiška vonios erdvė</image:title>
+      <image:caption>Pilkų plytelių vonios kambarys su stikline dušo zona, pakabinama kriaukle ir rankšluosčių džiovintuvu.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://buildiq.lt/assets/projects/balta-vonia-potinkinis-wc-led.webp</image:loc>
+      <image:title>Balta vonia su LED lubų apšvietimu</image:title>
+      <image:caption>Balta vonios apdaila su LED lubų apšvietimu, stikline dušo pertvara ir pakabinamu WC.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://buildiq.lt/assets/projects/marmuro-plyteles-potinkinis-wc-01.webp</image:loc>
+      <image:title>Potinkinis WC marmuro efekto plytelėse</image:title>
+      <image:caption>Pakabinamas WC marmuro efekto plytelėmis apdailintoje sienoje su LED veidrodžiu ir medinės imitacijos spintele.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://buildiq.lt/assets/projects/pilkos-plyteles-potinkinis-wc.webp</image:loc>
+      <image:title>Potinkinis WC pilkose marmuro plytelėse</image:title>
+      <image:caption>Pilkų marmuro tekstūros plytelių vonios siena su pakabinamu WC ir juodu rankšluosčių džiovintuvu.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://buildiq.lt/assets/projects/juodos-plyteles-potinkinis-wc.webp</image:loc>
+      <image:title>Tamsios marmuro efekto plytelės</image:title>
+      <image:caption>Tamsiai pilkos marmuro efekto didelio formato plytelės ir pakabinamas WC.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://buildiq.lt/assets/projects/laisva-vonia-dekoratyvines-plyteles.jpg</image:loc>
+      <image:title>Laisvai stovinti vonia</image:title>
+      <image:caption>Laisvai stovinti vonia su grindiniu maišytuvu ir dekoratyvinėmis plytų imitacijos plytelėmis.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://buildiq.lt/assets/projects/erdvi-vonia-laisva-vonia-dark.webp</image:loc>
+      <image:title>Erdvus vonios kambarys su laisva vonia</image:title>
+      <image:caption>Erdvus vonios kambarys su tamsiomis grindų plytelėmis, laisvai stovinčia vonia ir pakabinama kriaukle.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://buildiq.lt/faq</loc>
@@ -16,6 +82,61 @@
     <priority>0.8</priority>
   </url>
   <url><loc>https://buildiq.lt/vonios-remontas-klaipeda</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url>
+    <loc>https://buildiq.lt/kapitalinis-vonios-remontas</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://buildiq.lt/gyvatuko-keitimas</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://buildiq.lt/wc-montavimas</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://buildiq.lt/duso-kabinos-montavimas</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://buildiq.lt/vonios-montavimas</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://buildiq.lt/praustuvo-montavimas</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://buildiq.lt/maisytuvo-montavimas</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://buildiq.lt/vandentiekio-vamzdziu-keitimas</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://buildiq.lt/kanalizacijos-vamzdziu-keitimas</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://buildiq.lt/santechnikos-tasku-perkelimas</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://buildiq.lt/elektros-darbai-vonioje</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
   <url><loc>https://buildiq.lt/plyteliu-klijavimas-klaipeda</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://buildiq.lt/santechnikos-darbai-klaipeda</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://buildiq.lt/vonios-remonto-kaina</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -25,4 +146,99 @@
   <url><loc>https://buildiq.lt/potinkinio-wc-montavimas</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://buildiq.lt/duso-trapo-montavimas</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://buildiq.lt/grindu-betonavimas-klaipeda</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url>
+    <loc>https://buildiq.lt/elektrinis-grindu-sildymas-vonioje</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://buildiq.lt/sienu-lyginimas-tinkavimas-vonioje</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://buildiq.lt/gipso-darbai-vonioje</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://buildiq.lt/lubu-glaistymas-dazymas-vonioje</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://buildiq.lt/plyteliu-fugavimas-silikonavimas</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://buildiq.lt/darbai/6m2-vonios-remontas-klaipeda</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://buildiq.lt/darbai/8m2-vonios-remontas-klaipeda</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://buildiq.lt/darbai/5m2-vonios-irengas-gargzdai</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://buildiq.lt/darbai/7m2-vonios-remontas-klaipeda-2</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://buildiq.lt/darbai/vonios-remontas-palanga</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://buildiq.lt/darbai/9m2-erdvi-vonia-klaipeda</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://buildiq.lt/vonios-remontas-palanga</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://buildiq.lt/vonios-remontas-gargzdai</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://buildiq.lt/vonios-remontas-kretinga</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://buildiq.lt/vonios-remontas-silute</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://buildiq.lt/vonios-remontas-plunge</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://buildiq.lt/vonios-remontas-siauliai</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://buildiq.lt/vonios-remontas-kaunas</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://buildiq.lt/vonios-remontas-vilnius</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

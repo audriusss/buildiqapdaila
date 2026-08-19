@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Layout } from "@/components/layout";
 import { SEO } from "@/components/seo";
 import { ContactForm } from "@/components/contact-form";
@@ -8,7 +8,7 @@ import {
   ArrowRight, Phone, Clock, Shield, User,
   Hammer, Wrench, Droplets, LayoutGrid,
   Zap, Paintbrush, ShowerHead, MessageSquare,
-  ChevronRight, ChevronLeft,
+  Play, ChevronRight,
 } from "lucide-react";
 import { useListProjects } from "@workspace/api-client-react";
 
@@ -18,95 +18,85 @@ const VIDEOS = [
   "/videos/vonios-remontas-3.mp4",
 ];
 
-function VideoCarousel() {
-  const [active, setActive] = useState(0);
-  const videoRefs = useRef<(HTMLVideoElement | null)[]>([null, null, null]);
-  const touchStartX = useRef<number | null>(null);
-
-  const goTo = (index: number) => {
-    // Pause the currently active video before switching
-    const current = videoRefs.current[active];
-    if (current) {
-      current.pause();
-    }
-    setActive(index);
-  };
-
-  const prev = () => goTo((active - 1 + VIDEOS.length) % VIDEOS.length);
-  const next = () => goTo((active + 1) % VIDEOS.length);
-
-  const onTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.touches[0].clientX;
-  };
-  const onTouchEnd = (e: React.TouchEvent) => {
-    if (touchStartX.current === null) return;
-    const delta = touchStartX.current - e.changedTouches[0].clientX;
-    if (Math.abs(delta) > 40) delta > 0 ? next() : prev();
-    touchStartX.current = null;
-  };
+function VideoCard({
+  src,
+  index,
+}: {
+  src: string;
+  index: number;
+}) {
+  const [started, setStarted] = useState(false);
 
   return (
     <div
-      className="flex flex-col items-center gap-3 select-none"
-      onTouchStart={onTouchStart}
-      onTouchEnd={onTouchEnd}
+      className="relative overflow-hidden bg-black group"
+      style={{
+        aspectRatio: "9 / 16",
+        border: "1px solid rgba(180,130,70,0.22)",
+        boxShadow:
+          "0 8px 32px rgba(0,0,0,0.55), 0 0 0 1px rgba(180,130,70,0.05)",
+      }}
     >
-      {/* Video card */}
-      <div
-        className="relative overflow-hidden"
-        style={{
-          width: 267,
-          height: 476,
-          border: "1px solid rgba(180,130,70,0.18)",
-          boxShadow: "0 8px 48px rgba(0,0,0,0.65), 0 0 0 1px rgba(180,130,70,0.06)",
+      <video
+        src={src}
+        controls={started}
+        playsInline
+        preload="metadata"
+        className="w-full h-full object-cover"
+        aria-label={`Vonios remonto darbai – video ${index + 1}`}
+        onPlay={() => setStarted(true)}
+        onPause={(e) => {
+          if (e.currentTarget.currentTime === 0) setStarted(false);
         }}
-      >
-        {VIDEOS.map((src, i) => (
-          <video
+        onEnded={(e) => {
+          e.currentTarget.currentTime = 0;
+          setStarted(false);
+        }}
+      />
+
+      {!started && (
+        <button
+          type="button"
+          aria-label={`Paleisti vonios remonto video ${index + 1}`}
+          onClick={(e) => {
+            const video = e.currentTarget.previousElementSibling as HTMLVideoElement | null;
+
+            if (video) {
+              video.play();
+              setStarted(true);
+            }
+          }}
+          className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-black/15 hover:bg-black/25 transition-colors"
+        >
+          <span className="flex h-14 w-14 md:h-16 md:w-16 items-center justify-center rounded-full bg-black/70 border border-primary/60 backdrop-blur-sm shadow-2xl transition-transform group-hover:scale-110">
+            <Play className="w-6 h-6 md:w-7 md:h-7 text-primary fill-current ml-1" />
+          </span>
+
+          <span className="text-[9px] md:text-[10px] uppercase tracking-[0.18em] text-white/85 bg-black/55 px-3 py-1.5">
+            Peržiūrėti
+          </span>
+        </button>
+      )}
+    </div>
+  );
+}
+
+function VideoCarousel() {
+  return (
+    <div className="w-full max-w-[720px]">
+      <div className="grid grid-cols-3 gap-2 md:gap-3">
+        {VIDEOS.map((src, index) => (
+          <VideoCard
             key={src}
-            ref={(el) => { videoRefs.current[i] = el; }}
             src={src}
-            controls
-            playsInline
-            preload={i === 0 ? "metadata" : "none"}
-            className="absolute inset-0 w-full h-full object-cover bg-black transition-opacity duration-300"
-            style={{ opacity: i === active ? 1 : 0, pointerEvents: i === active ? "auto" : "none" }}
-            aria-label={`Vonios remontas Klaipėdoje – video ${i + 1}`}
+            index={index}
           />
         ))}
       </div>
 
-      {/* Controls: prev · dots · next */}
-      <div className="flex items-center gap-4">
-        <button
-          onClick={prev}
-          aria-label="Ankstesnis video"
-          className="text-foreground/35 hover:text-primary transition-colors"
-        >
-          <ChevronLeft className="w-5 h-5" />
-        </button>
-
-        <div className="flex gap-2">
-          {VIDEOS.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => goTo(i)}
-              aria-label={`Video ${i + 1}`}
-              className={`w-1.5 h-1.5 rounded-full transition-colors ${
-                i === active ? "bg-primary" : "bg-white/20 hover:bg-white/40"
-              }`}
-            />
-          ))}
-        </div>
-
-        <button
-          onClick={next}
-          aria-label="Kitas video"
-          className="text-foreground/35 hover:text-primary transition-colors"
-        >
-          <ChevronRight className="w-5 h-5" />
-        </button>
-      </div>
+      <p className="mt-3 text-center text-[10px] md:text-xs uppercase tracking-[0.18em] text-foreground/40">
+        Realūs atliktų darbų video
+      </p>
     </div>
   );
 }

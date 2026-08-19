@@ -55,3 +55,7 @@ Thumbs.db
 
 # Replit prompt attachments
 attached_assets/Pasted-*.txt
+
+# VPS local files
+logs/
+*.bak-*
